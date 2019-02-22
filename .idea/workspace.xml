@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="51bf125a-b869-4ee9-9a01-7196054f02d0" name="Default Changelist" comment="" />
+    <list default="true" id="51bf125a-b869-4ee9-9a01-7196054f02d0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -44,8 +46,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+            <state relative-caret-position="5">
+              <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -58,6 +60,15 @@
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/services/user.service.client.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -138,7 +149,6 @@
         <option value="$PROJECT_DIR$/src/app/components/widget/widget-edit/widget-image/widget-image.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/widget/widget-edit/widget-youtube/widget-youtube.component.html" />
         <option value="$PROJECT_DIR$/src/index.html" />
-        <option value="$PROJECT_DIR$/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/src/app/views/user/login/login.component.html" />
         <option value="$PROJECT_DIR$/src/app/views/user/login/login.component.ts" />
         <option value="$PROJECT_DIR$/src/app/views/page/page-edit/page-edit.component.ts" />
@@ -176,6 +186,7 @@
         <option value="$PROJECT_DIR$/src/app/views/widget/widget-list/widget-list.component.html" />
         <option value="$PROJECT_DIR$/src/app/views/website/website-list/website-list.component.html" />
         <option value="$PROJECT_DIR$/src/app/views/user/profile/profile.component.html" />
+        <option value="$PROJECT_DIR$/src/app/app.module.ts" />
       </list>
     </option>
   </component>
@@ -207,181 +218,6 @@
               <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="page-edit" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="page-list" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="page-new" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="profile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="register" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="website" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="website" type="462c0819:PsiDirectoryNode" />
-              <item name="website-edit" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="website" type="462c0819:PsiDirectoryNode" />
-              <item name="website-list" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="website" type="462c0819:PsiDirectoryNode" />
-              <item name="website-new" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-              <item name="widget-edit" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-              <item name="widget-edit" type="462c0819:PsiDirectoryNode" />
-              <item name="widget-header" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-              <item name="widget-edit" type="462c0819:PsiDirectoryNode" />
-              <item name="widget-image" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-              <item name="widget-edit" type="462c0819:PsiDirectoryNode" />
-              <item name="widget-youtube" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-              <item name="widget-list" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -469,16 +305,15 @@
       <workItem from="1550199685997" duration="4173000" />
       <workItem from="1550537847608" duration="20918000" />
       <workItem from="1550702008636" duration="19352000" />
-      <workItem from="1550798832265" duration="1686000" />
+      <workItem from="1550798832265" duration="2216000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66106000" />
+    <option name="totallyTimeSpent" value="66636000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22832981" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -798,13 +633,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/services/user.service.client.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -888,10 +716,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/services/user.service.client.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        <state relative-caret-position="5">
+          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
         </state>
       </provider>
     </entry>
