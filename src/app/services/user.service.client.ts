@@ -1,15 +1,16 @@
 import {Injectable} from '@angular/core';
+import {User} from '../models/user.model.client';
 
 @Injectable()
 export class UserService {
 
     constructor() { }
 
-    users = [
-        {_id: '123', username: 'alice',    password: 'alice',    firstName: 'Alice',  lastName: 'Wonder'  },
-        {_id: '234', username: 'bob',      password: 'bob',      firstName: 'Bob',    lastName: 'Marley'  },
-        {_id: '345', username: 'charly',   password: 'charly',   firstName: 'Charly', lastName: 'Garcia'  },
-        {_id: '456', username: 'jannunzi', password: 'jannunzi', firstName: 'Jose',   lastName: 'Annunzi' }
+    users: User[] = [
+        new User('123', 'alice',    'alice',    'Alice',  'Wonder', ''),
+        new User('234', 'bob',      'bob',      'Bob',    'Marley', ''),
+        new User('345', 'charly',   'charly',   'Charly', 'Garcia', ''),
+        new User('456', 'jannunzi', 'jannunzi', 'Jose',   'Annunzi', '')
     ];
 
     api = {
@@ -21,7 +22,7 @@ export class UserService {
         'deleteUserById' : this.deleteUserById
     };
 
-    createUser(user: any) {
+    createUser(user: User) {
         user._id = Math.floor(Math.random() * 1000).toString();
         this.users.push(user);
         console.log(this.users);
@@ -46,7 +47,7 @@ export class UserService {
         }
     }
 
-    updateUser(userId: String, user: any) {
+    updateUser(userId: String, user: User) {
         for (let x = 0; x < this.users.length; x++) {
             if (this.users[x]._id === userId) {
                 this.users[x].firstName = user.firstName;

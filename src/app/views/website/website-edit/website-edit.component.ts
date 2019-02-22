@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../../services/user.service.client';
 import {ActivatedRoute} from '@angular/router';
 import {WebsiteService} from '../../../services/website.service.client';
+import {Website} from '../../../models/website.model.client';
+import {User} from '../../../models/user.model.client';
 
 @Component({
   selector: 'app-website-edit',
@@ -11,9 +13,9 @@ import {WebsiteService} from '../../../services/website.service.client';
 export class WebsiteEditComponent implements OnInit {
 
   userId: String;
-  user: any;
+  user: User;
   websiteId: String;
-  website: any;
+  website: Website;
   websites: any;
 
   constructor(private userService: UserService, private websiteService: WebsiteService, private activatedRoute: ActivatedRoute) { }

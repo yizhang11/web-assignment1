@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../../services/user.service.client';
 import {Router} from '@angular/router';
+import {User} from '../../../models/user.model.client';
 
 @Component({
   selector: 'app-register',
@@ -9,8 +10,7 @@ import {Router} from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  user = {_id: '', username: '', password: '', firstName: '',  lastName: ''};
-  password: string;
+  user: User;
   v_password: string;
   errorFlag: boolean;
   errorMsg = 'Password mis-matching!';
@@ -18,9 +18,8 @@ export class RegisterComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   register() {
-    if ( this.v_password === this.password) {
+    if ( this.v_password === this.user.password) {
       this.errorFlag = false;
-      this.user.password = this.password;
       this.user = this.userService.createUser(this.user);
       console.log(this.user);
       this.router.navigate(['/user', this.user._id]);
@@ -30,5 +29,6 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = new User('', '', '');
   }
 }

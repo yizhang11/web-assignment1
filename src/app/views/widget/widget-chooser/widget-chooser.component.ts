@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {WidgetService} from '../../../services/widget.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Widget} from '../../../models/widget.model.client';
 
 @Component({
   selector: 'app-widget-chooser',
@@ -12,7 +13,7 @@ export class WidgetChooserComponent implements OnInit {
   userId: String;
   websiteId: String;
   pageId: String;
-  widget = {_id: '', widgetType: '', pageId: '', size: '', text: '', width: '', url: ''};
+  widget: Widget;
 
   constructor(private widgetService: WidgetService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
@@ -46,6 +47,7 @@ export class WidgetChooserComponent implements OnInit {
               this.pageId = params['pid'];
             }
         );
+    this.widget = new Widget('', '', '');
 
   }
 

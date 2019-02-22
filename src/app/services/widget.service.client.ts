@@ -1,18 +1,17 @@
 import {Injectable} from '@angular/core';
+import {Widget} from '../models/widget.model.client';
 
 @Injectable()
 export  class WidgetService {
 
-    widgets = [
-        { _id: '123', widgetType: 'HEADER', pageId: '321', size: 2, text: 'GIZMODO'},
-        { _id: '234', widgetType: 'HEADER', pageId: '321', size: 4, text: 'Lorem ipsum'},
-        { _id: '345', widgetType: 'IMAGE', pageId: '321', width: '100%',
-            'url': 'http://lorempixel.com/400/200/'},
-        { _id: '456', widgetType: 'HTML', pageId: '321', text: '<p>Lorem ipsum</p>'},
-        { _id: '567', widgetType: 'HEADER', pageId: '321', size: 4, text: 'Lorem ipsum'},
-        { _id: '678', widgetType: 'YOUTUBE', pageId: '321', width: '100%',
-            url: 'https://youtube/AM2Ivdi9c4E' },
-        { _id: '789', widgetType: 'HTML', pageId: '321', text: '<p>Lorem ipsum</p>'}
+    widgets: Widget[] = [
+        new Widget('123', 'HEADER', '321', '2', 'GIZMODO'),
+        new Widget('234', 'HEADER', '321', '4', 'Lorem ipsum'),
+        new Widget('345', 'IMAGE', '321', '', 'url', '', 'http://lorempixel.com/400/200/'),
+        new Widget('456', 'HTML', '321', '', '<p>Lorem ipsum</p>'),
+        new Widget('567', 'HEADER', '321', '4', 'Lorem ipsum'),
+        new Widget('678', 'YOUTUBE', '321', '', '', '100%', 'https://youtube/AM2Ivdi9c4E'),
+        new Widget('789', 'HTML', '321', '', '<p>Lorem ipsum</p>')
     ];
 
     api = {
@@ -23,7 +22,7 @@ export  class WidgetService {
         'deleteWidget' : this.deleteWidget
     };
 
-    createWidget(pageId: String, widget: any) {
+    createWidget(pageId: String, widget: Widget) {
         widget._id = Math.floor(Math.random() * 1000).toString();
         widget.pageId = pageId;
         this.widgets.push(widget);
@@ -46,7 +45,7 @@ export  class WidgetService {
         });
     }
 
-    updateWidget(widgetId: String, widget: any) {
+    updateWidget(widgetId: String, widget: Widget) {
         for ( const i in this.widgets ) {
             if ( this.widgets[i]._id === widgetId ) {
                 switch (widget.widgetType) {

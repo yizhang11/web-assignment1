@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import {UserService} from '../../../services/user.service.client';
+import {User} from '../../../models/user.model.client';
 
 @Component({
   selector: 'app-profile',
@@ -12,7 +13,7 @@ import {UserService} from '../../../services/user.service.client';
 export class ProfileComponent implements OnInit {
 
   userId: String;
-  user = {_id: '', username: '', password: '', firstName: '',  lastName: ''};
+  user: User;
   username: String;
 
   constructor(private userService: UserService, private activatedRoute: ActivatedRoute) { }

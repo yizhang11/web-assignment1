@@ -250,6 +250,113 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/models/page.model.client.ts":
+/*!*********************************************!*\
+  !*** ./src/app/models/page.model.client.ts ***!
+  \*********************************************/
+/*! exports provided: Page */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Page", function() { return Page; });
+var Page = /** @class */ (function () {
+    function Page(_id, name, websiteId, title) {
+        this._id = _id;
+        this.name = name;
+        this.websiteId = websiteId;
+        this.title = title;
+    }
+    return Page;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/models/user.model.client.ts":
+/*!*********************************************!*\
+  !*** ./src/app/models/user.model.client.ts ***!
+  \*********************************************/
+/*! exports provided: User */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+var User = /** @class */ (function () {
+    function User(_id, username, password, firstName, lastName, email) {
+        if (firstName === void 0) { firstName = ''; }
+        if (lastName === void 0) { lastName = ''; }
+        if (email === void 0) { email = ''; }
+        this._id = _id;
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
+    return User;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/models/website.model.client.ts":
+/*!************************************************!*\
+  !*** ./src/app/models/website.model.client.ts ***!
+  \************************************************/
+/*! exports provided: Website */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Website", function() { return Website; });
+var Website = /** @class */ (function () {
+    function Website(_id, name, developerId, description) {
+        this._id = _id;
+        this.name = name;
+        this.developerId = developerId;
+        this.description = description;
+    }
+    return Website;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/models/widget.model.client.ts":
+/*!***********************************************!*\
+  !*** ./src/app/models/widget.model.client.ts ***!
+  \***********************************************/
+/*! exports provided: Widget */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Widget", function() { return Widget; });
+var Widget = /** @class */ (function () {
+    function Widget(_id, type, pageId, size, text, width, url) {
+        if (size === void 0) { size = '1'; }
+        if (text === void 0) { text = 'text'; }
+        if (width === void 0) { width = '100%'; }
+        if (url === void 0) { url = 'url'; }
+        this._id = _id;
+        this.widgetType = type;
+        this.pageId = pageId;
+        this.size = size;
+        this.url = url;
+        this.width = width;
+    }
+    return Widget;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/page.service.client.ts":
 /*!*************************************************!*\
   !*** ./src/app/services/page.service.client.ts ***!
@@ -262,14 +369,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PageService", function() { return PageService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _models_page_model_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/page.model.client */ "./src/app/models/page.model.client.ts");
+
 
 
 var PageService = /** @class */ (function () {
     function PageService() {
         this.pages = [
-            { _id: '321', name: 'Post 1', websiteId: '456', description: 'Lorem' },
-            { _id: '432', name: 'Post 2', websiteId: '456', description: 'Lorem' },
-            { _id: '543', name: 'Post 3', websiteId: '456', description: 'Lorem' }
+            new _models_page_model_client__WEBPACK_IMPORTED_MODULE_2__["Page"]('321', 'Post 1', '456', 'Lorem'),
+            new _models_page_model_client__WEBPACK_IMPORTED_MODULE_2__["Page"]('432', 'Post 2', '456', 'Lorem'),
+            new _models_page_model_client__WEBPACK_IMPORTED_MODULE_2__["Page"]('543', 'Post 3', '456', 'Lorem')
         ];
         this.api = {
             'createPage': this.createPage,
@@ -303,7 +412,7 @@ var PageService = /** @class */ (function () {
         for (var i in this.pages) {
             if (this.pages[i]._id === pageId) {
                 this.pages[i].name = page.name;
-                this.pages[i].description = page.description;
+                this.pages[i].title = page.title;
             }
         }
     };
@@ -337,15 +446,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _models_user_model_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/user.model.client */ "./src/app/models/user.model.client.ts");
+
 
 
 var UserService = /** @class */ (function () {
     function UserService() {
         this.users = [
-            { _id: '123', username: 'alice', password: 'alice', firstName: 'Alice', lastName: 'Wonder' },
-            { _id: '234', username: 'bob', password: 'bob', firstName: 'Bob', lastName: 'Marley' },
-            { _id: '345', username: 'charly', password: 'charly', firstName: 'Charly', lastName: 'Garcia' },
-            { _id: '456', username: 'jannunzi', password: 'jannunzi', firstName: 'Jose', lastName: 'Annunzi' }
+            new _models_user_model_client__WEBPACK_IMPORTED_MODULE_2__["User"]('123', 'alice', 'alice', 'Alice', 'Wonder', ''),
+            new _models_user_model_client__WEBPACK_IMPORTED_MODULE_2__["User"]('234', 'bob', 'bob', 'Bob', 'Marley', ''),
+            new _models_user_model_client__WEBPACK_IMPORTED_MODULE_2__["User"]('345', 'charly', 'charly', 'Charly', 'Garcia', ''),
+            new _models_user_model_client__WEBPACK_IMPORTED_MODULE_2__["User"]('456', 'jannunzi', 'jannunzi', 'Jose', 'Annunzi', '')
         ];
         this.api = {
             'createUser': this.createUser,
@@ -423,18 +534,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WebsiteService", function() { return WebsiteService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _models_website_model_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/website.model.client */ "./src/app/models/website.model.client.ts");
+
 
 
 var WebsiteService = /** @class */ (function () {
     function WebsiteService() {
         this.websites = [
-            { _id: '123', name: 'Facebook', developerId: '456', description: 'Lorem' },
-            { _id: '234', name: 'Tweeter', developerId: '456', description: 'Lorem' },
-            { _id: '456', name: 'Gizmodo', developerId: '456', description: 'Lorem' },
-            { _id: '890', name: 'Go', developerId: '123', description: 'Lorem' },
-            { _id: '567', name: 'Tic Tac Toe', developerId: '123', description: 'Lorem' },
-            { _id: '678', name: 'Checkers', developerId: '123', description: 'Lorem' },
-            { _id: '789', name: 'Chess', developerId: '234', description: 'Lorem' }
+            new _models_website_model_client__WEBPACK_IMPORTED_MODULE_2__["Website"]('123', 'Facebook', '456', 'Lorem'),
+            new _models_website_model_client__WEBPACK_IMPORTED_MODULE_2__["Website"]('234', 'Tweeter', '456', 'Lorem'),
+            new _models_website_model_client__WEBPACK_IMPORTED_MODULE_2__["Website"]('456', 'Gizmodo', '456', 'Lorem'),
+            new _models_website_model_client__WEBPACK_IMPORTED_MODULE_2__["Website"]('890', 'Go', '123', 'Lorem'),
+            new _models_website_model_client__WEBPACK_IMPORTED_MODULE_2__["Website"]('567', 'Tic Tac Toe', '123', 'Lorem'),
+            new _models_website_model_client__WEBPACK_IMPORTED_MODULE_2__["Website"]('678', 'Checkers', '123', 'Lorem'),
+            new _models_website_model_client__WEBPACK_IMPORTED_MODULE_2__["Website"]('789', 'Chess', '234', 'Lorem')
         ];
         this.api = {
             'createWebsite': this.createWebsite,
@@ -504,20 +617,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WidgetService", function() { return WidgetService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _models_widget_model_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/widget.model.client */ "./src/app/models/widget.model.client.ts");
+
 
 
 var WidgetService = /** @class */ (function () {
     function WidgetService() {
         this.widgets = [
-            { _id: '123', widgetType: 'HEADER', pageId: '321', size: 2, text: 'GIZMODO' },
-            { _id: '234', widgetType: 'HEADER', pageId: '321', size: 4, text: 'Lorem ipsum' },
-            { _id: '345', widgetType: 'IMAGE', pageId: '321', width: '100%',
-                'url': 'http://lorempixel.com/400/200/' },
-            { _id: '456', widgetType: 'HTML', pageId: '321', text: '<p>Lorem ipsum</p>' },
-            { _id: '567', widgetType: 'HEADER', pageId: '321', size: 4, text: 'Lorem ipsum' },
-            { _id: '678', widgetType: 'YOUTUBE', pageId: '321', width: '100%',
-                url: 'https://youtube/AM2Ivdi9c4E' },
-            { _id: '789', widgetType: 'HTML', pageId: '321', text: '<p>Lorem ipsum</p>' }
+            new _models_widget_model_client__WEBPACK_IMPORTED_MODULE_2__["Widget"]('123', 'HEADER', '321', '2', 'GIZMODO'),
+            new _models_widget_model_client__WEBPACK_IMPORTED_MODULE_2__["Widget"]('234', 'HEADER', '321', '4', 'Lorem ipsum'),
+            new _models_widget_model_client__WEBPACK_IMPORTED_MODULE_2__["Widget"]('345', 'IMAGE', '321', '', 'url', '', 'http://lorempixel.com/400/200/'),
+            new _models_widget_model_client__WEBPACK_IMPORTED_MODULE_2__["Widget"]('456', 'HTML', '321', '', '<p>Lorem ipsum</p>'),
+            new _models_widget_model_client__WEBPACK_IMPORTED_MODULE_2__["Widget"]('567', 'HEADER', '321', '4', 'Lorem ipsum'),
+            new _models_widget_model_client__WEBPACK_IMPORTED_MODULE_2__["Widget"]('678', 'YOUTUBE', '321', '', '', '100%', 'https://youtube/AM2Ivdi9c4E'),
+            new _models_widget_model_client__WEBPACK_IMPORTED_MODULE_2__["Widget"]('789', 'HTML', '321', '', '<p>Lorem ipsum</p>')
         ];
         this.api = {
             'createWidget': this.createWidget,
@@ -775,6 +888,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_website_service_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/website.service.client */ "./src/app/services/website.service.client.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _services_page_service_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/page.service.client */ "./src/app/services/page.service.client.ts");
+/* harmony import */ var _models_page_model_client__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../models/page.model.client */ "./src/app/models/page.model.client.ts");
+
 
 
 
@@ -785,7 +900,6 @@ var PageNewComponent = /** @class */ (function () {
         this.websiteService = websiteService;
         this.activatedRoute = activatedRoute;
         this.pageService = pageService;
-        this.page = { _id: '', name: '', websiteId: '', description: '' };
     }
     PageNewComponent.prototype.createPage = function () {
         this.pageService.createPage(this.websiteId, this.page);
@@ -798,6 +912,7 @@ var PageNewComponent = /** @class */ (function () {
             _this.userId = params['uid'];
             _this.websiteId = params['wid'];
         });
+        this.page = new _models_page_model_client__WEBPACK_IMPORTED_MODULE_5__["Page"]('', '', '', '');
     };
     PageNewComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -939,7 +1054,6 @@ var ProfileComponent = /** @class */ (function () {
     function ProfileComponent(userService, activatedRoute) {
         this.userService = userService;
         this.activatedRoute = activatedRoute;
-        this.user = { _id: '', username: '', password: '', firstName: '', lastName: '' };
     }
     ProfileComponent.prototype.updateUser = function () {
         this.userService.updateUser(this.userId, this.user);
@@ -989,7 +1103,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <h1>Register</h1>\n\n  <div *ngIf=\"errorFlag\"\n       class=\"alert alert-danger\">\n    {{errorMsg}}\n\n  </div>\n\n  <label>Username</label>\n  <input [(ngModel)]=\"user.username\" type=\"text\" class=\"form-control input\"placeholder=\"alice\"/>\n  <br/>\n  <label>Password</label>\n  <input [(ngModel)]=\"password\" type=\"password\" class=\"form-control input\" placeholder=\"#######\"/>\n  <br/>\n  <label>Verify Password</label>\n  <input [(ngModel)]=\"v_password\" type=\"password\" class=\"form-control input\" placeholder=\"#######\"/>\n  <br/>\n  <button class=\"btn btn-primary btn-block\" (click)=\"register()\">Register</button>\n  <button class=\"btn btn-danger  btn-block\" routerLink=\"/login\">Cancel</button>\n</div>\n\n\n"
+module.exports = "<div class=\"container\">\n  <h1>Register</h1>\n\n  <div *ngIf=\"errorFlag\"\n       class=\"alert alert-danger\">\n    {{errorMsg}}\n\n  </div>\n\n  <label>Username</label>\n  <input [(ngModel)]=\"user.username\" type=\"text\" class=\"form-control input\"placeholder=\"alice\"/>\n  <br/>\n  <label>Password</label>\n  <input [(ngModel)]=\"user.password\" type=\"password\" class=\"form-control input\" placeholder=\"#######\"/>\n  <br/>\n  <label>Verify Password</label>\n  <input [(ngModel)]=\"v_password\" type=\"password\" class=\"form-control input\" placeholder=\"#######\"/>\n  <br/>\n  <button class=\"btn btn-primary btn-block\" (click)=\"register()\">Register</button>\n  <button class=\"btn btn-danger  btn-block\" routerLink=\"/login\">Cancel</button>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -1007,6 +1121,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/user.service.client */ "./src/app/services/user.service.client.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _models_user_model_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../models/user.model.client */ "./src/app/models/user.model.client.ts");
+
 
 
 
@@ -1015,13 +1131,11 @@ var RegisterComponent = /** @class */ (function () {
     function RegisterComponent(userService, router) {
         this.userService = userService;
         this.router = router;
-        this.user = { _id: '', username: '', password: '', firstName: '', lastName: '' };
         this.errorMsg = 'Password mis-matching!';
     }
     RegisterComponent.prototype.register = function () {
-        if (this.v_password === this.password) {
+        if (this.v_password === this.user.password) {
             this.errorFlag = false;
-            this.user.password = this.password;
             this.user = this.userService.createUser(this.user);
             console.log(this.user);
             this.router.navigate(['/user', this.user._id]);
@@ -1031,6 +1145,7 @@ var RegisterComponent = /** @class */ (function () {
         }
     };
     RegisterComponent.prototype.ngOnInit = function () {
+        this.user = new _models_user_model_client__WEBPACK_IMPORTED_MODULE_4__["User"]('', '', '');
     };
     RegisterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1233,6 +1348,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/user.service.client */ "./src/app/services/user.service.client.ts");
 /* harmony import */ var _services_website_service_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/website.service.client */ "./src/app/services/website.service.client.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _models_website_model_client__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../models/website.model.client */ "./src/app/models/website.model.client.ts");
+
 
 
 
@@ -1243,7 +1360,6 @@ var WebsiteNewComponent = /** @class */ (function () {
         this.userService = userService;
         this.websiteService = websiteService;
         this.activatedRoute = activatedRoute;
-        this.website = { _id: '', name: '', developerId: '', description: '' };
     }
     WebsiteNewComponent.prototype.createWebsite = function () {
         this.websiteService.createWebsite(this.userId, this.website);
@@ -1258,6 +1374,7 @@ var WebsiteNewComponent = /** @class */ (function () {
         });
         this.websites = this.websiteService.findWebsitesByUser(this.userId);
         console.log(this.websites);
+        this.website = new _models_website_model_client__WEBPACK_IMPORTED_MODULE_5__["Website"]('', '', '', '');
     };
     WebsiteNewComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1310,6 +1427,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_widget_service_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/widget.service.client */ "./src/app/services/widget.service.client.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _models_widget_model_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../models/widget.model.client */ "./src/app/models/widget.model.client.ts");
+
 
 
 
@@ -1319,7 +1438,6 @@ var WidgetChooserComponent = /** @class */ (function () {
         this.widgetService = widgetService;
         this.activatedRoute = activatedRoute;
         this.router = router;
-        this.widget = { _id: '', widgetType: '', pageId: '', size: '', text: '', width: '', url: '' };
     }
     WidgetChooserComponent.prototype.createHeaderWidget = function () {
         this.widget.widgetType = 'HEADER';
@@ -1347,6 +1465,7 @@ var WidgetChooserComponent = /** @class */ (function () {
             _this.websiteId = params['wid'];
             _this.pageId = params['pid'];
         });
+        this.widget = new _models_widget_model_client__WEBPACK_IMPORTED_MODULE_4__["Widget"]('', '', '');
     };
     WidgetChooserComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
