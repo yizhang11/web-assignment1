@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {Directive, NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SortableDirective } from './views/widget/widget-list/sortable.directive';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -43,7 +44,8 @@ import { WidgetService } from './services/widget.service.client';
     WidgetListComponent,
     WidgetHeaderComponent,
     WidgetImageComponent,
-    WidgetYoutubeComponent
+    WidgetYoutubeComponent,
+    SortableDirective
   ],
   imports: [
     BrowserModule,

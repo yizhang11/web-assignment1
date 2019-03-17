@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core';
 import {User} from '../models/user.model.client';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class UserService {
 
-    constructor() { }
+    constructor(private _http: HttpClient) { }
 
     users: User[] = [
         new User('123', 'alice',    'alice',    'Alice',  'Wonder', ''),
