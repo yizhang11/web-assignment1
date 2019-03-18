@@ -5,11 +5,11 @@ import {Widget} from '../../../../models/widget.model.client';
 import {SharedService} from '../../../../services/shared.service.client';
 
 @Component({
-  selector: 'app-widget-header',
-  templateUrl: './widget-header.component.html',
-  styleUrls: ['./widget-header.component.css']
+  selector: 'app-widget-html',
+  templateUrl: './widget-html.component.html',
+  styleUrls: ['./widget-html.component.css']
 })
-export class WidgetHeaderComponent implements OnInit {
+export class WidgetHtmlComponent implements OnInit {
 
     flag = false; // setting error flag as false by default
     error: string;

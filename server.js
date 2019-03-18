@@ -29,13 +29,6 @@ const server = http.createServer(app);
 server.listen( port , () => console.log('Running on port 3200'));
 
 
-//demo hello world api calls
-app.get("/api/hello", function(req, res){
-    console.log("Get hello api call!");
-    res.send("Hello world!");});
-
-//refactor api calls
-app.get("/api/test", test);
 
 function test(req, res) {
     console.log("Hit test api....")
@@ -44,5 +37,4 @@ function test(req, res) {
 
 
 require('./assignment/app')(app);
-app.listen(port, ipaddress);
 

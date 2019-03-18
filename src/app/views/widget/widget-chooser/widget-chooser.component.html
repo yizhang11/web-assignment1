@@ -7,16 +7,16 @@
 <div class="container-fluid cl-container-padding">
   <ul class="list-group cl-list-group-borderless">
     <li class="list-group-item border-0">
-      <a [routerLink]="" (click)="createHeaderWidget()" >Header</a>
+      <a [routerLink]="" (click)="createWidget('HEADER')" >Header</a>
     </li>
     <li class="list-group-item border-0">
       <a [routerLink]="" >Label</a>
     </li>
     <li class="list-group-item border-0">
-      <a [routerLink]="">HTML</a>
+      <a [routerLink]="" (click)="createWidget('HTML')">HTML</a>
     </li>
     <li class="list-group-item border-0">
-      <a [routerLink]="">Text Input</a>
+      <a [routerLink]="" (click)="createWidget('TEXT')">Text Input</a>
     </li>
     <li class="list-group-item border-0">
       <a [routerLink]="">Link</a>
@@ -25,10 +25,10 @@
       <a [routerLink]="">Button</a>
     </li>
     <li class="list-group-item border-0">
-      <a [routerLink]="" (click)="createImageWidget()">Image</a>
+      <a [routerLink]="" (click)="createWidget('IMAGE')">Image</a>
     </li>
     <li class="list-group-item border-0">
-      <a [routerLink]="" (click)="createYoutubeWidget()">YouTube</a>
+      <a [routerLink]="" (click)="createWidget('YOUTUBE')">YouTube</a>
     </li>
     <li class="list-group-item border-0">
       <a [routerLink]="">Data Table</a>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {WidgetService} from '../../../services/widget.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Widget} from '../../../models/widget.model.client';
+import {SharedService} from '../../../services/shared.service.client';
 
 @Component({
   selector: 'app-widget-chooser',
@@ -15,25 +16,19 @@ export class WidgetChooserComponent implements OnInit {
   pageId: String;
   widget: Widget;
 
-  constructor(private widgetService: WidgetService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private widgetService: WidgetService, private activatedRoute: ActivatedRoute, private router: Router,
+              private sharedService: SharedService) { }
 
-  createHeaderWidget() {
-    this.widget.widgetType = 'HEADER';
-    this.widget = this.widgetService.createWidget(this.pageId, this.widget);
-    this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget', this.widget._id]);
-    console.log(this.widget);
-  }
-
-  createImageWidget() {
-    this.widget.widgetType = 'IMAGE';
-    this.widget = this.widgetService.createWidget(this.pageId, this.widget);
-    this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget', this.widget._id]);
-    console.log(this.widget);
-  }
-  createYoutubeWidget() {
-    this.widget.widgetType = 'YOUTUBE';
-    this.widget = this.widgetService.createWidget(this.pageId, this.widget);
-    this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget', this.widget._id]);
+  createWidget(widgetType) {
+    this.widget.widgetType = widgetType;
+    this.widgetService.createWidget(this.pageId, this.widget).subscribe((data: any) => {
+      this.widget = data;
+      this.sharedService.widget = data;
+      this.widgetService.findWidgetsByPageId(this.pageId).subscribe((data1: any) => {
+        this.sharedService.widgets = data1;
+      });
+      this.router.navigate(['/user/' + this.userId + '/website/' + this.websiteId + '/page/' + this.pageId + '/widget/' + this.widget._id])
+    });
     console.log(this.widget);
   }
 

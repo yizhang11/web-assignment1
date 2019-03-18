@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
 import {UserService} from '../../../services/user.service.client';
+import {ActivatedRoute, Router} from '@angular/router';
 import {User} from '../../../models/user.model.client';
+import {SharedService} from '../../../services/shared.service.client';
 
 @Component({
   selector: 'app-profile',
@@ -12,26 +12,23 @@ import {User} from '../../../models/user.model.client';
 
 export class ProfileComponent implements OnInit {
 
-  userId: String;
-  user: User;
-  username: String;
+    userId: String;
+    user: User;
+    username: String;
 
-  constructor(private userService: UserService, private activatedRoute: ActivatedRoute) { }
+    constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private sharedService: SharedService ) { }
 
-  updateUser() {
-      this.userService.updateUser(this.userId, this.user);
-      console.log(this.user);
-  }
-  ngOnInit() {
-    this.activatedRoute.params
-        .subscribe(
-            (params: any) => {
-              this.userId = params['uid'];
-            }
-        );
-    console.log(this.userId);
-    this.user = this.userService.findUserById(this.userId);
-    console.log(this.user);
-    this.username = this.user.username;
-  }
+    updateUser() {
+        this.activatedRoute.params.subscribe(params => {
+            return this.userService.updateUser(this.user).subscribe(
+                (user: User) => {
+                    this.sharedService.user = user;
+                    this.user = user;
+                }
+            );
+        });
+    }
+    ngOnInit() {
+        this.user = this.sharedService.user;
+    }
 }

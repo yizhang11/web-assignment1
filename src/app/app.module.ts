@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {Directive, NgModule} from '@angular/core';
+import { NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { SortableDirective } from './views/widget/widget-list/sortable.directive';
+import { SortableDirective} from './directives/sortable.directive';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +26,9 @@ import { UserService } from './services/user.service.client';
 import { WebsiteService } from './services/website.service.client';
 import { PageService } from './services/page.service.client';
 import { WidgetService } from './services/widget.service.client';
+import { WidgetHtmlComponent } from './views/widget/widget-edit/widget-html/widget-html.component';
+import { WidgetTextComponent } from './views/widget/widget-edit/widget-text/widget-text.component';
+import {SharedService} from './services/shared.service.client';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,9 @@ import { WidgetService } from './services/widget.service.client';
     WidgetHeaderComponent,
     WidgetImageComponent,
     WidgetYoutubeComponent,
-    SortableDirective
+    SortableDirective,
+    WidgetHtmlComponent,
+    WidgetTextComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,7 @@ import { WidgetService } from './services/widget.service.client';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [UserService, WebsiteService, PageService, WidgetService],
+  providers: [UserService, WebsiteService, PageService, WidgetService, SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

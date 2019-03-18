@@ -1,17 +1,16 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
+import {Widget} from '../models/widget.model.client';
 
 @Injectable()
 export  class WidgetService {
-
     baseUrl = environment.baseUrl;
-    //private static _http: HttpClient;
 
     constructor(private _http: HttpClient) {}
 
 
-    createWidget(pageId, widget) {
+    createWidget(pageId, widget: Widget) {
         const url = this.baseUrl + '/api/page/' + pageId + '/widget';
         return this._http.post(url, widget);
     }
@@ -37,7 +36,6 @@ export  class WidgetService {
     }
 
     reorderWidgets(startIndex, endIndex, pageId) {
-
         const url = this.baseUrl + '/api/page/' + pageId + '/widget?start=' + startIndex + '&end=' + endIndex;
         return this._http.put(url, '');
     }

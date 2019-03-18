@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {WebsiteService} from '../../../services/website.service.client';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {PageService} from '../../../services/page.service.client';
 import {Page} from '../../../models/page.model.client';
+import {SharedService} from '../../../services/shared.service.client';
 
 @Component({
   selector: 'app-page-edit',
@@ -11,31 +11,40 @@ import {Page} from '../../../models/page.model.client';
 })
 export class PageEditComponent implements OnInit {
 
-  userId: String;
-  websiteId: String;
-  pageId: String;
-  page: Page;
-  constructor(private websiteService: WebsiteService, private activatedRoute: ActivatedRoute, private pageService: PageService) { }
+    userId: String;
+    websiteId: String;
+    pages: Page[] = [];
+    pageId: String;
+    page: Page;
 
-  updatePage() {
-    this.pageService.updatePage(this.pageId, this.page);
-    console.log(this.page);
-  }
+    constructor(private pageService: PageService, private activatedRoute: ActivatedRoute, private router: Router,
+                private sharedService: SharedService) {}
 
-  deletePage() {
-    this.pageService.deletePage(this.pageId);
-  }
-  ngOnInit() {
-    this.activatedRoute.params
-        .subscribe(
-            (params: any) => {
-              this.userId = params['uid'];
-              this.websiteId = params['wid'];
-              this.pageId = params['pid'];
-            }
-        );
-    this.page = this.pageService.findPageById(this.pageId);
-    console.log(this.page);
-  }
+    updatePage() {
+        this.pageService.updatePage(this.pageId, this.page).subscribe((data: any) => {
+        });
+        this.pageService.findPagesByWebsiteId(this.websiteId).subscribe((data: any) => {
+            this.sharedService.pages = data;
+        });
+    }
+    deletePage() {
+        this.pageService.deletePage(this.pageId).subscribe((data: any) => {
+        });
+        this.pageService.findPagesByWebsiteId(this.websiteId).subscribe((data: any) => {
+            this.sharedService.pages = data;
+        });
+    }
+
+    ngOnInit() {
+        this.activatedRoute.params
+            .subscribe(
+                (params: any) => {
+                    this.userId = params['uid'];
+                    this.websiteId = params['wid'];
+                    this.pageId = params['pid'];
+                }
+            );
+        console.log(this.page);
+    }
 
 }

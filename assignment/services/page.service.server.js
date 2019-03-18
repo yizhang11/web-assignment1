@@ -20,7 +20,7 @@ module.exports = function (app) {
                 return;
             }
         }
-        page._id = Math.random().toString();
+        page._id = Math.floor(Math.random() * 1000).toString();
         page.websiteId = websiteId;
         pages.push(page);
         res.json(page);
@@ -50,6 +50,7 @@ module.exports = function (app) {
     function updatePage(req, res) {
         let pageId = req.params.pageId;
         let updatedPage = req.body;
+        console.log(pageId);
         for (let i = 0; i < pages.length; i++) {
             if (pages[i]._id === pageId) {
                 pages[i].name = updatedPage.name;

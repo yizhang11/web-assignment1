@@ -1,5 +1,3 @@
-import {WidgetService as widgetModel} from "../../src/app/services/widget.service.client";
-
 module.exports= function(app){
 
     let widgets = [
@@ -9,10 +7,8 @@ module.exports= function(app){
         { _id: "456", widgetType: "HTML", name: 'html name', pageId: "321", size: "", text: "<p>Lorem ipsum</p>", url: "", width: "", height: 100, rows: 0, class: '', icon: '', deletable: false, formatted: false, placeholder: '' },
         { _id: "567", widgetType: "HEADER", name: ' ', pageId: "321", size: "4", text: "Lorem ipsum", url: "", width: "", height: 100, rows: 0, class: '', icon: '', deletable: false, formatted: false, placeholder: '' },
         { _id: "678", widgetType: "YOUTUBE", name: ' ', pageId: "321", size: "", text: "", url: 'https://www.youtube.com/embed/mFkli0wD4-w', width: "100%", height: 100, rows: 0, class: '', icon: '', deletable: false, formatted: false, placeholder: '' },
-        { _id: "789", widgetType: "HTML", name: 'html name', pageId: "321", size: "<p>Lorem ipsum</p>", text: "", url: "", width: "", height: 100, rows: 0, class: '', icon: '', deletable: false, formatted: false, placeholder: '' }
+        { _id: "789", widgetType: "HTML", name: 'html name', pageId: "321", size: "", text: "<p>Lorem ipsum</p>", url: "", width: "", height: 100, rows: 0, class: '', icon: '', deletable: false, formatted: false, placeholder: '' }
     ];
-
-    let widgetModel = widgetModel;
 
     let multer = require('multer'); // npm install multer --save
     let upload = multer({ dest: __dirname+'/../../src/assets/uploads' });
@@ -33,69 +29,79 @@ module.exports= function(app){
     function createWidget (req,res) {
         let pageId = req.params.pageId;
         let widget = req.body;
-        widgetModel.createWidget(pageId, widget)
-          .then(function (widget) {
-            res.json(widget);
-          }, function (err) {
-            res.sendStatus(400).send(err);
-          });
 
-        widgets.push(widget);
-        /* return true only if the JSON object is inserted */
-        res.send(200);
-    }
-
-    /* pattern matching usies only base URL. it ignores anything after ?
-     app.get("/api/user/:userId", findUserById);
-     app.get("/api/user/:userId", findUserById);
-     are the same URLs to Express!     */
-    function uploadImage(req, res) {
-        var userId = req.body.userId;
-        var websiteId = req.body.websiteId;
-        var pageId = req.body.pageId;
-
-
-        var widgetId      = req.body.widgetId;
-        var width         = req.body.width;
-        var myFile        = req.file;
-
-        if(myFile == null) {
-            //res.redirect("https://yourheroku.herokuapp.com/user/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
-            res.redirect("http://localhost:3200/user/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
-            return;
-        }
-
-
-        var originalname  = myFile.originalname; // file name on user's computer
-        var filename      = myFile.filename;     // new file name in upload folder
-        var path          = myFile.path;         // full path of uploaded file
-        var destination   = myFile.destination;  // folder where file is saved to
-        var size          = myFile.size;
-        var mimetype      = myFile.mimetype;
-
-
-        var widget = { url: "assets/uploads/"+filename};
-
-        var widget;
-        for (var i = 0; i < widgets.length; i++) {
-            if (widgets[i]._id === widgetId) {
-                widget = widgets[i];
+        for (let i = 0; i < widgets.length; i++) {
+            if (widgets[i].pageId === pageId && widgets[i].name === widget.name
+                && widgets[i].widgetType === widget.widgetType && widgets[i]._id === widget._id) {
+                res.status(404).send("This widget has already existed.");
+                return;
             }
         }
-        widget.url = 'uploads/' + filename;
+        widget._id = Math.random().toString();
+        widgets.push(widget);
+        res.send(widget);
+    }
 
-        /*widgetModel
-          .updateWidget(widgetId, widget)
-          .then(function (stats) {
-              console.log(stats);
-              res.send(200);
-            },
-            function (err) {
-              res.sendStatus(404).send(err);
-            });*/
+    function findAllWidgetsForPage (req,res) {
+        let pageId = req.params.pageId;
+        let resultSet = [];
+        for(let i in widgets){
+            if(widgets[i].pageId === pageId){
+                resultSet.push(widgets[i]);
+            }
+        } res.send(resultSet);
+    }
 
-        res.redirect("https://yourheroku.herokuapp.com/user/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
-        //res.redirect("http://localhost:3200/user/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+    function findWidgetById (req,res) {
+        let widgetId  = req.params.widgetId;
+        for(let i in widgets){
+            if(widgetId === widgets[i]._id){
+                res.send(widgets[i]);
+                break;
+            }
+        }
+        res.status(404).send("This widget doesn't exist.");
+    }
+
+    function updateWidget (req,res) {
+        let widgetId  = req.params.widgetId;
+        let widget = req.body;
+
+        for (let i in widgets) {
+            if (widgets[i]._id === widgetId) {
+                switch (widget.widgetType) {
+                    case 'HEADER':
+                    case 'TEXT':
+                    case 'HTML':
+                        this.widgets[i].text = widget.text;
+                        this.widgets[i].size = widget.size;
+                        return;
+                    case 'IMAGE':
+                        this.widgets[i].text = widget.text;
+                        this.widgets[i].url = widget.url;
+                        this.widgets[i].width = widget.width;
+                        return;
+                    case 'YOUTUBE':
+                        this.widgets[i].text = widget.text;
+                        this.widgets[i].url = widget.url;
+                        this.widgets[i].width = widget.width;
+                        return;
+                }
+            }
+        }
+        res.send(widget);
+    }
+
+    function deleteWidget (req,res) {
+        let widgetId  = req.params.widgetId;
+        for(let i = 0; i < this.widgets.length; i++) {
+            if (this.widgets[i]._id === widgetId) {
+                this.widgets.splice(i, 1);
+                res.status(200).send("widget deleted");
+                return;
+            }
+        }
+        res.status(404).send("Widget doesn't exist.");
     }
 
     function array_swap(arr, old_index, new_index) {
@@ -106,111 +112,70 @@ module.exports= function(app){
             new_index += arr.length;
         }
         if (new_index >= arr.length) {
-            var k = new_index - arr.length + 1;
+            let k = new_index - arr.length + 1;
             while (k--) {
                 arr.push(undefined);
             }
         }
         arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
-    };
+    }
 
     function reorderWidgets(req,res) {
-
-        var startIndex = parseInt(req.query["start"]);
-        var endIndex = parseInt(req.query["end"]);
-
+        let startIndex = parseInt(req.query.start);
+        let endIndex = parseInt(req.query["end"]);
         array_swap(widgets, startIndex, endIndex);
-        res.sendStatus(200);
+        res.status(200);
+    }
 
-        /* var pageId = req.params.pageId;
-         var startIndex = parseInt(req.query.start);
-         var endIndex = parseInt(req.query.end);
-         widgetModel
-           .reorderWidgets(pageId, startIndex, endIndex)
-           .then(function (stats) {
-             res.send(200);
-           }, function (err) {
-             res.sendStatus(400).send(err);
-           });
-     */
+    /* pattern matching usies only base URL. it ignores anything after ?
+     app.get("/api/user/:userId", findUserById);
+     app.get("/api/user/:userId", findUserById);
+     are the same URLs to Express!     */
+    function uploadImage(req, res) {
+        let userId = req.body.userId;
+        let websiteId = req.body.websiteId;
+        let pageId = req.body.pageId;
+
+
+        let widgetId      = req.body.widgetId;
+        let width         = req.body.width;
+        let myFile        = req.file;
+
+        if(myFile == null) {
+            //res.redirect("https://yi-assignment1.herokuapp.com/user/" + userId + "/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+            res.redirect("http://localhost:3200/user/" + userId + "/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+            return;
+        }
+
+
+        let originalname  = myFile.originalname; // file name on user's computer
+        let filename      = myFile.filename;     // new file name in upload folder
+        let path          = myFile.path;         // full path of uploaded file
+        let destination   = myFile.destination;  // folder where file is saved to
+        let size          = myFile.size;
+        let mimetype      = myFile.mimetype;
+
+        let url = 'assets/uploads/' + filename;
+        console.log(url);
+
+        for (let i = 0; i < widgets.length; i++) {
+            if (widgets[i]._id === widgetId) {
+                widgets[i].url = url;
+                widgets[i].width = width;
+            }
+        }
+        //res.redirect("https://yi-assignment1.herokuapp.com/user/" + userId + "/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+        res.redirect("http://localhost:3200/user/" + userId + "/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
     }
 
 
 
 
 
-    function findAllWidgetsForPage (req,res) {
-        var pageId = req.params.pageId;
-
-        /*widgetModel
-          .findAllWidgetsForPage(pageId)
-          .then(function (widgets) {
-              res.json(widgets);
-            },
-            function (err) {
-              res.sendStatus(404).send(err);
-            });
-    */
-
-        // var resultSet = [];
-        // for(var i in widgets){
-        //     if(widgets[i].pageId === pageId){
-        //         resultSet.push(widgets[i]);
-        //     }
-        // } res.send(resultSet);
-    }
-    function findWidgetById (req,res) {
-        var widgetId  = req.params.widgetId;
-
-        /* widgetModel
-           .findWidgetById(widgetId)
-           .then(function (widget) {
-               res.json(widget);
-             },
-             function (err) {
-               res.sendStatus(404).send(err);
-             });*/
-        // for(var i in widgets){
-        //     if(widgetId === widgets[i]._id){
-        //         res.send(widgets[i]);
-        //     }
-        // }
-    }
-    function updateWidget (req,res) {
-
-        var widgetId  = req.params.widgetId;
-        var widget = req.body;
-
-        /*widgetModel
-          .updateWidget(widgetId, widget)
-          .then(function (stats) {
-              console.log(stats);
-              res.send(200);
-            },
-            function (err) {
-              res.sendStatus(404).send(err);
-            });*/
 
 
 
-    }
-    function deleteWidget (req,res) {
-        var widgetId  = req.params.widgetId;
-        var pageId = req.query.pageId;
-        // var position = req.query.postobedeleted;
-        // widgetModel
-        //     .updatePosition(pageId, position)
-        //     .then(function (stats) {
-        /* widgetModel
-           .deleteWidget(widgetId)
-           .then (function (stats) {
-               console.log(stats);
-               res.send(200);
-             },
-             function (err) {
-               res.sendStatus(404).send(err);
-             });*/
-        // });
 
-    }
+
+
 };
