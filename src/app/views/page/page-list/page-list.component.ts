@@ -13,7 +13,7 @@ import {SharedService} from '../../../services/shared.service.client';
 export class PageListComponent implements OnInit {
 
     userId: String;
-    webId: String;
+    websiteId: String;
     pages: Page[] = [];
     constructor(private pageService: PageService, private activatedRoute: ActivatedRoute,
                 private sharedService: SharedService) { }
@@ -22,10 +22,10 @@ export class PageListComponent implements OnInit {
         this.activatedRoute.params.subscribe(
             (params: any) => {
                 this.userId = params['uid'];
-                this.webId = params['wid'];
+                this.websiteId = params['wid'];
             }
         );
-        this.pageService.findPagesByWebsiteId(this.webId).subscribe((data: any) => {
+        this.pageService.findPagesByWebsiteId(this.websiteId).subscribe((data: any) => {
             this.sharedService.pages = data;
             this.pages = data;
         });

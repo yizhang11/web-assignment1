@@ -21,9 +21,9 @@ export class WidgetChooserComponent implements OnInit {
 
   createWidget(widgetType) {
     this.widget.widgetType = widgetType;
-    this.widgetService.createWidget(this.pageId, this.widget).subscribe((data: any) => {
-      this.widget = data;
-      this.sharedService.widget = data;
+    this.widgetService.createWidget(this.pageId, this.widget).subscribe((widget: Widget) => {
+      this.widget = widget;
+      this.sharedService.widget = widget;
       this.widgetService.findWidgetsByPageId(this.pageId).subscribe((data1: any) => {
         this.sharedService.widgets = data1;
       });
@@ -42,7 +42,7 @@ export class WidgetChooserComponent implements OnInit {
               this.pageId = params['pid'];
             }
         );
-    this.widget = new Widget('', '', '');
+    this.widget = new Widget('', '');
 
   }
 

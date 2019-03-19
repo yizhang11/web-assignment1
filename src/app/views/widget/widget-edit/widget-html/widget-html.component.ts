@@ -56,6 +56,7 @@ export class WidgetHtmlComponent implements OnInit {
             this.flag = true;
         } else {
             this.widgetService.updateWidget(this.widgetId, this.widget).subscribe((data: any) => {
+                this.widget = data;
             });
             this.widgetService.findWidgetsByPageId(this.pageId).subscribe((data: any) => {
                 this.sharedService.widgets = data;

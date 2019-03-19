@@ -11,7 +11,17 @@ module.exports= function(app){
     ];
 
     let multer = require('multer'); // npm install multer --save
-    let upload = multer({ dest: __dirname+'/../../src/assets/uploads' });
+    const path = require('path');
+    let storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, __dirname + '/../../dist/yi-project1/assets/uploads/')
+        },
+        filename: function (req, file, cb) {
+            cb(null, Date.now() + path.extname(file.originalname)) //Appending extension
+        }
+    })
+
+    let upload = multer({ storage: storage });
 
     /* John pappy's - declare APIs at top and write functions below */
 
@@ -27,17 +37,11 @@ module.exports= function(app){
     app.post ("/api/upload", upload.single('myFile'), uploadImage);
 
     function createWidget (req,res) {
-        let pageId = req.params.pageId;
         let widget = req.body;
+        widget._id = Math.floor(Math.random() * 1000).toString();
+        widget.pageId = req.params['pageId'];
 
-        for (let i = 0; i < widgets.length; i++) {
-            if (widgets[i].pageId === pageId && widgets[i].name === widget.name
-                && widgets[i].widgetType === widget.widgetType && widgets[i]._id === widget._id) {
-                res.status(404).send("This widget has already existed.");
-                return;
-            }
-        }
-        widget._id = Math.random().toString();
+        console.log(widget);
         widgets.push(widget);
         res.send(widget);
     }
@@ -54,11 +58,17 @@ module.exports= function(app){
 
     function findWidgetById (req,res) {
         let widgetId  = req.params.widgetId;
-        for(let i in widgets){
-            if(widgetId === widgets[i]._id){
-                res.send(widgets[i]);
-                break;
-            }
+        const widget = widgets.find(function (widget) {
+            return widget._id === widgetId;
+        });
+        if (widget) {
+            console.log("find widget by id: " + widget._id);
+            res.json(widget);
+            return;
+        } else {
+            console.log("find widget by id: not found");
+            res.json({});
+            return;
         }
         res.status(404).send("This widget doesn't exist.");
     }
@@ -66,38 +76,44 @@ module.exports= function(app){
     function updateWidget (req,res) {
         let widgetId  = req.params.widgetId;
         let widget = req.body;
+        console.log(widget);
 
         for (let i in widgets) {
             if (widgets[i]._id === widgetId) {
-                switch (widget.widgetType) {
+                switch (widgets[i].widgetType) {
                     case 'HEADER':
                     case 'TEXT':
                     case 'HTML':
-                        this.widgets[i].text = widget.text;
-                        this.widgets[i].size = widget.size;
+                        widgets[i].name = widget.name;
+                        widgets[i].text = widget.text;
+                        widgets[i].size = widget.size;
+                        res.send(widget[i]);
                         return;
                     case 'IMAGE':
-                        this.widgets[i].text = widget.text;
-                        this.widgets[i].url = widget.url;
-                        this.widgets[i].width = widget.width;
+                        widgets[i].name = widget.name;
+                        widgets[i].text = widget.text;
+                        widgets[i].url = widget.url;
+                        widgets[i].width = widget.width;
+                        res.send(widget[i]);
                         return;
                     case 'YOUTUBE':
-                        this.widgets[i].text = widget.text;
-                        this.widgets[i].url = widget.url;
-                        this.widgets[i].width = widget.width;
+                        widgets[i].name = widget.name;
+                        widgets[i].text = widget.text;
+                        widgets[i].url = widget.url;
+                        widgets[i].width = widget.width;
+                        res.send(widget[i]);
                         return;
                 }
             }
         }
-        res.send(widget);
     }
 
     function deleteWidget (req,res) {
         let widgetId  = req.params.widgetId;
-        for(let i = 0; i < this.widgets.length; i++) {
-            if (this.widgets[i]._id === widgetId) {
-                this.widgets.splice(i, 1);
-                res.status(200).send("widget deleted");
+        for(let i = 0; i < widgets.length; i++) {
+            if (widgets[i]._id === widgetId) {
+                widgets.splice(i, 1);
+                res.status(200);
                 return;
             }
         }
@@ -141,9 +157,12 @@ module.exports= function(app){
         let width         = req.body.width;
         let myFile        = req.file;
 
+        //let baseUrl = 'http://localhost:3200';
+        let baseUrl = 'https://yi-assignment1.herokuapp.com';
+        const callbackUrl = baseUrl + '/user/' + userId + "/website/" + websiteId
+            + "/page/" + pageId + "/widget";
         if(myFile == null) {
-            //res.redirect("https://yi-assignment1.herokuapp.com/user/" + userId + "/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
-            res.redirect("http://localhost:3200/user/" + userId + "/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+            res.redirect(callbackUrl + "/" + widgetId);
             return;
         }
 
@@ -155,17 +174,16 @@ module.exports= function(app){
         let size          = myFile.size;
         let mimetype      = myFile.mimetype;
 
-        let url = 'assets/uploads/' + filename;
+        let url = '/assets/uploads/' + filename;
         console.log(url);
 
         for (let i = 0; i < widgets.length; i++) {
             if (widgets[i]._id === widgetId) {
                 widgets[i].url = url;
                 widgets[i].width = width;
+                res.redirect(callbackUrl + "/" + widgetId);
             }
         }
-        //res.redirect("https://yi-assignment1.herokuapp.com/user/" + userId + "/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
-        res.redirect("http://localhost:3200/user/" + userId + "/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
     }
 
 

@@ -18,10 +18,13 @@ export class PageNewComponent implements OnInit {
     constructor(private pageService: PageService, private activatedRoute: ActivatedRoute, private router: Router,
                 private sharedService: SharedService) {}
     createPage() {
-        this.pageService.createPage(this.websiteId, this.page).subscribe((data: any) => {
-            this.sharedService.pages = data;
+        this.pageService.createPage(this.websiteId, this.page).subscribe((page: Page) => {
+            console.log('create page: ' + page._id + ' ' + page.name);
+            this.page = page;
+            this.pageService.findPagesByWebsiteId(this.websiteId).subscribe((data: any) => {
+                this.sharedService.pages = data;
+            });
         });
-        this.router.navigate(['/usr/' + this.userId + '/website/' + this.websiteId + '/page']);
     }
 
     ngOnInit() {
@@ -31,6 +34,7 @@ export class PageNewComponent implements OnInit {
                 this.websiteId = params['wid'];
             }
         );
+        this.page = new Page('', '', '');
     }
 
 }

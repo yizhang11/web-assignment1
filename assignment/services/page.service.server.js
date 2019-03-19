@@ -12,16 +12,18 @@ module.exports = function (app) {
     ];
 
     function createPage(req, res) {
-        let websiteId = req.params.websiteId;
-        let page = req.body;
+        const page = {
+            _id: Math.floor(Math.random() * 1000).toString(),
+            name: req.body.name,
+            websiteId: req.params['websiteId'],
+            title: req.body.title
+        };
         for (let i = 0; i < pages.length; i++) {
             if (pages[i].websiteId === page.websiteId && pages[i].name === page.name) {
                 res.status(404).send("This page has already existed.");
                 return;
             }
         }
-        page._id = Math.floor(Math.random() * 1000).toString();
-        page.websiteId = websiteId;
         pages.push(page);
         res.json(page);
     }

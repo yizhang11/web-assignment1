@@ -17,8 +17,12 @@ export class WebsiteListComponent implements OnInit {
     constructor(private websiteService: WebsiteService, private activatedRoute: ActivatedRoute, private sharedService: SharedService) { }
 
     ngOnInit() {
-        this.userId = this.sharedService.user._id;
-        this.websiteService.findWebsitesByUser(this.sharedService.user._id)
+        this.activatedRoute.params.subscribe(
+            (params: any) => {
+                this.userId = params['uid'];
+            }
+        );
+        this.websiteService.findWebsitesByUser(this.userId)
             .subscribe((data: any) => {
                 this.websites = data;
                 this.sharedService.websites = data;

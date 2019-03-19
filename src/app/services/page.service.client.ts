@@ -13,8 +13,7 @@ export class PageService {
     }
 
     createPage(websiteId: String, page: Page) {
-        const req_url = this.baseUrl + 'api/website/' + websiteId + '/page';
-        return this._http.post(req_url, page);
+        return this._http.post(this.baseUrl + '/api/website/' + websiteId + '/page', page);
     }
 
     findPagesByWebsiteId(websiteId) {

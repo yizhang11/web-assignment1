@@ -13,7 +13,6 @@ import {SharedService} from '../../../services/shared.service.client';
 export class WebsiteNewComponent implements OnInit {
 
   userId: String;
-  websiteId: String;
   website: Website;
   websites: any;
 
@@ -21,8 +20,11 @@ export class WebsiteNewComponent implements OnInit {
               private sharedService: SharedService) { }
 
   createWebsite() {
-    this.websiteService.createWebsite(this.userId, this.website).subscribe((data: any) => {
-      this.sharedService.websites = data;
+    this.websiteService.createWebsite(this.userId, this.website).subscribe((website: Website) => {
+      this.website = website;
+      this.websiteService.findWebsitesByUser(this.userId).subscribe((data: any) => {
+        this.sharedService.websites = data;
+      });
     });
   }
 

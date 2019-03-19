@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {WebsiteService} from '../../../services/website.service.client';
 import {Website} from '../../../models/website.model.client';
-import {User} from '../../../models/user.model.client';
 import {SharedService} from '../../../services/shared.service.client';
 
 @Component({
@@ -13,7 +12,6 @@ import {SharedService} from '../../../services/shared.service.client';
 export class WebsiteEditComponent implements OnInit {
 
   userId: String;
-  user: User;
   websiteId: String;
   website: Website;
   websites: any;
@@ -23,14 +21,19 @@ export class WebsiteEditComponent implements OnInit {
 
   updateWebsite() {
     this.website._id = this.websiteId;
-    this.websiteService.updateWebsite(this.userId, this.website).subscribe((data: any) => {
-      this.sharedService.websites = data;
+    this.websiteService.updateWebsite(this.websiteId, this.website).subscribe((website: Website) => {
+      this.website = website;
+      this.websiteService.findWebsitesByUser(this.userId).subscribe((data: any) => {
+        this.sharedService.websites = data;
+      });
     });
   }
 
   deleteWebsite() {
-    this.websiteService.deleteWebsite(this.websiteId).subscribe((data: any) => {
-      this.sharedService.websites = data;
+    this.websiteService.deleteWebsite(this.websiteId).subscribe((website: Website) => {
+      this.websiteService.findWebsitesByUser(this.userId).subscribe((data: any) => {
+        this.sharedService.websites = data;
+      });
     });
   }
   ngOnInit() {
@@ -41,6 +44,14 @@ export class WebsiteEditComponent implements OnInit {
           this.websiteId = params['wid'];
         }
     );
+    this.websiteService.findWebsiteById(this.websiteId).subscribe(
+        (website: Website) => {
+          this.website = website;
+        });
+    this.websiteService.findWebsitesByUser(this.userId).subscribe(
+        (websites: any) => {
+          this.websites = websites;
+        });
   }
 
 }

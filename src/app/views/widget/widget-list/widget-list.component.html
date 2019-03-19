@@ -24,6 +24,15 @@
               </div>
               <p [ngStyle]="{'font-size': widget.size+'00%', 'text-align': 'center'}">{{widget.text}}</p>
             </div>
+            <div *ngSwitchCase="'TEXT'">
+              <div class="float-right">
+                <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget" class="float-right">
+                  <i class="fas fa-bars"></i></a>
+                <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget/{{widget._id}}">
+                  <i class="fas fa-cog"></i></a>
+              </div>
+              <p [ngStyle]="{'font-size': widget.size+'00%', 'text-align': 'center'}">{{widget.text}}</p>
+            </div>
 
             <div *ngSwitchCase="'IMAGE'">
               <div class="float-right">

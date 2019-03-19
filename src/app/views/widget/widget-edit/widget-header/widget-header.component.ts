@@ -38,15 +38,13 @@ export class WidgetHeaderComponent implements OnInit {
                     this.pageId = params['pid'];
                     this.widgetId = params['wgid'];
                     this.widgets = this.sharedService.widgets;
-                    // this.widget = this.sharedService.widget;
                 }
             );
-
-        this.widgetService.findWidgetById(this.widgetId)
-            .subscribe(
-                (data: any) => this.widget = data,
-                (error: any) => console.log(error)
-            );
+        this.widgetService.findWidgetById(this.widgetId).subscribe(
+            (widget: Widget) => {
+                this.widget = widget;
+            }
+        );
     }
 
     updateWidget() {
@@ -55,11 +53,13 @@ export class WidgetHeaderComponent implements OnInit {
         if (this.widget['name'] === undefined) {
             this.flag = true;
         } else {
-            this.widgetService.updateWidget(this.widgetId, this.widget).subscribe((data: any) => {
-            });
-            this.widgetService.findWidgetsByPageId(this.pageId).subscribe((data: any) => {
-                this.sharedService.widgets = data;
-            });
+            this.widgetService.updateWidget(this.widget._id, this.widget).subscribe(
+                (widget: Widget) => {
+                    console.log('update widget header: ' + widget);
+                    this.widgetService.findWidgetsByPageId(this.pageId).subscribe((data: any) => {
+                        this.sharedService.widgets = data;
+                    });
+                });
         }
     }
 

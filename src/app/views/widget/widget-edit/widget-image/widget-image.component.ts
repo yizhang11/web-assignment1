@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {WidgetService} from '../../../../services/widget.service.client';
 import {Widget} from '../../../../models/widget.model.client';
 import {SharedService} from '../../../../services/shared.service.client';
+import {environment} from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-widget-image',
@@ -18,6 +19,7 @@ export class WidgetImageComponent implements OnInit {
     widgetId: string;
     widget: Widget;
     widgets: Widget[] = [];
+    baseUrl = environment.baseUrl;
 
     constructor(private widgetService: WidgetService, private router: Router, private activatedRoute: ActivatedRoute,
                 private sharedService: SharedService) { }
@@ -30,9 +32,12 @@ export class WidgetImageComponent implements OnInit {
                 this.pageId = params['pid'];
                 this.widgetId = params['wgid'];
                 this.widgets = this.sharedService.widgets;
-                this.widget = this.sharedService.widget;
             }
         );
+        this.widgetService.findWidgetById(this.widgetId).subscribe((data: any) => {
+            this.widget = data;
+            console.log(this.widget);
+        });
     }
 
     updateWidget() {
@@ -42,6 +47,7 @@ export class WidgetImageComponent implements OnInit {
             this.flag = true;
         } else {
             this.widgetService.updateWidget(this.widgetId, this.widget).subscribe((data: any) => {
+                this.widget = data;
             });
             this.widgetService.findWidgetsByPageId(this.pageId).subscribe((data: any) => {
                 this.sharedService.widgets = data;

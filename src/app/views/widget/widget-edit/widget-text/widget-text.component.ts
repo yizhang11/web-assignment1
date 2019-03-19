@@ -38,7 +38,6 @@ export class WidgetTextComponent implements OnInit {
               this.pageId = params['pid'];
               this.widgetId = params['wgid'];
               this.widgets = this.sharedService.widgets;
-              // this.widget = this.sharedService.widget;
             }
         );
 
@@ -55,11 +54,13 @@ export class WidgetTextComponent implements OnInit {
         if (this.widget['name'] === undefined) {
             this.flag = true;
         } else {
-            this.widgetService.updateWidget(this.widgetId, this.widget).subscribe((data: any) => {
-            });
-            this.widgetService.findWidgetsByPageId(this.pageId).subscribe((data: any) => {
-                this.sharedService.widgets = data;
-            });
+            this.widgetService.updateWidget(this.widget._id, this.widget).subscribe(
+                (widget: Widget) => {
+                    console.log('update widget text: ' + widget);
+                    this.widgetService.findWidgetsByPageId(this.pageId).subscribe((data: any) => {
+                        this.sharedService.widgets = data;
+                    });
+                });
         }
     }
 

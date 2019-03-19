@@ -16,16 +16,12 @@ module.exports = function (app) {
     ];
 
     function createWebsite(req, res) {
-        let userId = req.params.userId;
-        let website = req.body;
-        for (let i = 0; i < websites.length; i++) {
-            if (websites[i].developerId === userId && websites[i].name === website.name) {
-                res.status(404).send("This website is already exist.");
-                return;
-            }
-        }
-        website._id = Math.floor(Math.random() * 1000).toString();
-        website.developerId = userId;
+        const website = {
+            _id: Math.floor(Math.random() * 1000).toString(),
+            name: req.body.name,
+            developerId: req.params['userId'],
+            description: req.body.description
+        };
         websites.push(website);
         res.json(website);
     }
