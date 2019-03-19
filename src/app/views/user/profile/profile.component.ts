@@ -3,6 +3,7 @@ import {UserService} from '../../../services/user.service.client';
 import {ActivatedRoute} from '@angular/router';
 import {User} from '../../../models/user.model.client';
 import {SharedService} from '../../../services/shared.service.client';
+import {Website} from '../../../models/website.model.client';
 
 @Component({
   selector: 'app-profile',
@@ -29,6 +30,14 @@ export class ProfileComponent implements OnInit {
         });
     }
     ngOnInit() {
-        this.user = this.sharedService.user;
+        this.activatedRoute.params.subscribe(
+            (params: any) => {
+                this.userId = params['uid'];
+            }
+        );
+        this.userService.findUserById(this.userId).subscribe(
+            (user: User) => {
+                this.user = user;
+            });
     }
 }
