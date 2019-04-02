@@ -18,9 +18,7 @@ export class WebsiteEditComponent implements OnInit {
 
   updateWebsite() {
     this.website._id = this.websiteId;
-    this.websiteService.updateWebsite(this.websiteId, this.website).subscribe((website: any) => {
-      this.website = website;
-    });
+    this.websiteService.updateWebsite(this.websiteId, this.website);
   }
 
   deleteWebsite() {

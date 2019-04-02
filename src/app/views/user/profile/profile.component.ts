@@ -18,12 +18,7 @@ export class ProfileComponent implements OnInit {
 
     updateUser() {
         this.activatedRoute.params.subscribe(params => {
-            return this.userService.updateUser(this.user).subscribe(
-                (user: any) => {
-                    console.log('update: ' + user.email);
-                    //this.user = user;
-                }
-            );
+            return this.userService.updateUser(this.user);
         });
     }
 
