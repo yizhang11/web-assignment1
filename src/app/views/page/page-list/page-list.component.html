@@ -5,14 +5,14 @@
     <i class="fas fa-plus black-icons"></i></a>
 </nav>
 
-<div class="container move-up" *ngFor="let page of pages">
-  <ul class="list-group border-0">
-    <li class="list-group-item border-0 ">
-      <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{page._id}}"><span>
+  <div class="container move-up" *ngIf="pages">
+    <ul class="list-group border-0">
+      <li class="list-group-item border-0 " *ngFor="let page of pages">
+        <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{page._id}}"><span>
         <i class="fas fa-cog float-right setting"></i></span></a>
-      <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{page._id}}/widget">{{page.name}}</a>
-    </li>
-  </ul>
+        <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{page._id}}/widget">{{page.name}}</a>
+      </li>
+    </ul>
 </div>
 
 <nav class="navbar fixed-bottom bg-light navbar-light justify-content-end">

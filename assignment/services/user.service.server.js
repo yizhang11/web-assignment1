@@ -7,6 +7,8 @@ module.exports = function (app) {
     app.put("/api/user/:userId", updateUser);
     app.delete("/api/user/:userId", deleteUser);
 
+    let userModel = require('../model/user/user.model.server');
+
     let users = [
         {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonderland"},
         {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
@@ -16,15 +18,19 @@ module.exports = function (app) {
 
     function createUser(req, res) {
         let user = req.body;
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].username === user["username"]) {
-                res.status(404).send("This username is already exist.");
-                return;
-            }
-        }
-        user._id = Math.floor(Math.random() * 1000).toString();
-        users.push(user);
-        res.json(user);
+        userModel
+            .createUser(user)
+            .then(
+                function (user) {
+                    console.log("user created!");
+                    res.json(user);
+                },
+                function (error) {
+                    if (error) {console.log(error);
+                        res.status(400).send(error);
+                    }
+                }
+            )
     }
 
     function findUserByName(req, res) {
@@ -45,64 +51,63 @@ module.exports = function (app) {
     function findUserByCredentials(req, res) {
         let username = req.query["username"];
         let password = req.query["password"];
-        console.log(username + " " + password);
-        let user = null;
-
-        if (username && password){
-            user = users.find(function (user) {
-                return user.username === username && user.password === password;
-            });
-        }
-        res.send(user);
+        userModel
+            .findByCredential(username,password)
+            .exec(
+                function (err,user) {
+                    if(err){
+                        return res.sendStatus(400).send(err);
+                    }
+                    return res.json(user);
+                }
+            );
     }
 
     function findUserById(req, res){
         let userId = req.params["userId"];
-        let user = null;
-        if (userId) {
-            user = users.find(function (user) {
-                return user._id === userId;
-            });
-            if (user) {
-                res.status(200).send(user);
-                return;
-            }
-        }
-        res.status(404).send("This user doesn't exist.");
+        userModel
+            .findUserById(userId)
+            .exec(
+                function (err,user) {
+                    if(err){
+                        return res.sendStatus(400).send(err);
+                    }
+                    return  res.json(user);
+                }
+            );
     }
 
     function updateUser(req, res){
         let userId = req.params['userId'];
         let user = req.body;
 
-        console.log(req.body);
-        console.log("update user: " + userId + " " + user.firstName + " " + user.lastName);
-
-        for(let i = 0; i < users.length; i++) {
-            if (users[i]._id === userId) {
-                users[i].username = user.username;
-                users[i].firstName = user.firstName;
-                users[i].lastName = user.lastName;
-                users[i].email = user.email;
-                res.status(200).send(user);
-                return;
-            }
-        }
-        res.status(404).send("not found!");
+        userModel
+            .updateUser(userId,user)
+            .then(
+                function (user) {
+                    res.json(user);
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            );
     }
 
 
 
     function deleteUser(req, res) {
         let user = req.body;
-        for (let i = 0; i < users.length; i++) {
-            if (users[i]._id === user["_id"]) {
-                users.splice(i, 1);
-                res.status(200).send("User deleted")
-                return;
-            }
-        }
-        res.status(404).send("User doesn't exist.");
+        userModel
+            .deleteUser(user._id)
+            .then(
+                function (user) {
+                    console.log('user service: ' + user);
+                    res.json(user);
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            );
     }
 
 

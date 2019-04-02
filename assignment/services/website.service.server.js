@@ -6,73 +6,86 @@ module.exports = function (app) {
     app.delete("/api/website/:websiteId", deleteWebsite);
 
     let websites = [
-        { _id: "123", name: "Facebook", developerId: "456", description: "Lorem" },
-        { _id: "234", name: "Tweeter", developerId: "456", description: "Lorem" },
-        { _id: "456", name: "Gizmodo", developerId: "456", description: "Lorem" },
-        { _id: "890", name: "Go", developerId: "123", description: "Lorem" },
-        { _id: "567", name: "Tic Tac Toe", developerId: "123", description: "Lorem" },
-        { _id: "678", name: "Checkers", developerId: "123", description: "Lorem" },
-        { _id: "789", name: "Chess", developerId: "234", description: "Lorem" }
+        { _id: "123", name: "Facebook", userId: "456", description: "Lorem" },
+        { _id: "234", name: "Tweeter", userId: "456", description: "Lorem" },
+        { _id: "456", name: "Gizmodo", userId: "456", description: "Lorem" },
+        { _id: "890", name: "Go", userId: "123", description: "Lorem" },
+        { _id: "567", name: "Tic Tac Toe", userId: "123", description: "Lorem" },
+        { _id: "678", name: "Checkers", userId: "123", description: "Lorem" },
+        { _id: "789", name: "Chess", userId: "234", description: "Lorem" }
     ];
 
+    let websiteModel = require('../model/website/website.model.server');
+
     function createWebsite(req, res) {
-        const website = {
-            _id: Math.floor(Math.random() * 1000).toString(),
-            name: req.body.name,
-            developerId: req.params['userId'],
-            description: req.body.description
-        };
-        websites.push(website);
-        res.json(website);
+        let website = req.body;
+        let userId = req.params.userId;
+        console.log(website);
+
+        websiteModel.createWebsite(userId,website)
+            .then(
+                function (website) {
+                    console.log(website);
+                    res.json(website);
+                },
+                function (error) {
+                    res.status(400).send(error);
+                }
+            )
     }
 
     function findAllWebsitesForUser(req, res) {
         let userId = req.params.userId;
-        let resultSet = [];
-        for (let x = 0; x < websites.length; x++) {
-            if (websites[x].developerId === userId) {
-                resultSet.push(websites[x]);
+        websiteModel.findAllWebsiteForUser(userId).then(
+            function (websites) {
+                console.log(websites);
+                res.json(websites);
+            },
+            function (error) {
+                res.status(400).send(error);
             }
-        }
-        res.json(resultSet);
+        );
     }
 
     function findWebsiteById(req, res) {
         let websiteId = req.params.websiteId;
-        for (let i = 0; i < websites.length; i++) {
-            if (websites[i]._id === websiteId) {
-                return res.json(websites[i]);
-            }
-        }
-        res.status(404).send("Cannot find the website");
+        websiteModel.findWebsiteById(websiteId)
+            .then(
+                function(website){
+                    res.json(website);
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            )
     }
 
     function updateWebsite(req, res) {
         let websiteId = req.params.websiteId;
-        let updatedWebsite = req.body;
+        let website = req.body;
 
-        console.log("update website: " + websiteId + " " + updatedWebsite.name + " " + updatedWebsite.description);
-        for (let i = 0; i < websites.length; i++) {
-            if (websites[i]._id === websiteId) {
-                websites[i].name = updatedWebsite.name;
-                websites[i].description = updatedWebsite.description;
-
-                res.json(updatedWebsite);
-                return;
-            }
-        }
-        res.status(404).send("Website not found!");
+        websiteModel.updateWebsite(websiteId,website)
+            .then(
+                function (website) {
+                    res.json(website);
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function deleteWebsite(req, res) {
         let websiteId = req.params.websiteId;
-        for (let x = 0; x < websites.length; x++) {
-            if (websites[x]._id === websiteId) {
-                res.json(websites[x]);
-                websites.splice(x, 1);
-                return;
-            }
-        }
-        res.status(404).send("Website with ID: " + websiteId + " cannot be found");
+        websiteModel.deleteWebsite(websiteId)
+            .then(
+                function (data) {
+                    res.json(data);
+                },
+                function (err) {
+                    res.status(400).send(err);
+
+                }
+            );
     }
 }

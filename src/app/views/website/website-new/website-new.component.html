@@ -24,14 +24,14 @@
 
 <div class="container-fluid">
   <div class="row"><div class="container col-4 d-none d-sm-block move-up">
-    <ul class="list-group border-0">
-    <div *ngFor="let website of websites">
-        <li class="list-group-item border-0 ">
-          <a routerLink="user/{{userId}}/website/{{website._id}}">
-            <span><i class="fas fa-cog float-right setting"></i></span></a>
-          <a routerLink="./page">{{website.name}}</a>
-        </li>
-    </div>
+    <ul class="list-group border-0" *ngIf="websites">
+        <div *ngFor="let web of websites">
+          <li class="list-group-item border-0 " *ngIf="web">
+            <a routerLink="/user/{{userId}}/website/{{web._id}}">
+              <span><i class="fas fa-cog float-right setting"></i></span></a>
+            <a routerLink="/user/{{userId}}/website/{{web._id}}/page">{{web.name}}</a>
+          </li>
+        </div>
     </ul>
   </div>
 

@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../../services/user.service.client';
 import {ActivatedRoute} from '@angular/router';
-import {User} from '../../../models/user.model.client';
-import {SharedService} from '../../../services/shared.service.client';
-import {Website} from '../../../models/website.model.client';
 
 @Component({
   selector: 'app-profile',
@@ -14,21 +11,27 @@ import {Website} from '../../../models/website.model.client';
 export class ProfileComponent implements OnInit {
 
     userId: String;
-    user: User;
+    user: any;
     username: String;
 
-    constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private sharedService: SharedService ) { }
+    constructor(private userService: UserService, private activatedRoute: ActivatedRoute) { }
 
     updateUser() {
         this.activatedRoute.params.subscribe(params => {
             return this.userService.updateUser(this.user).subscribe(
-                (user: User) => {
-                    this.sharedService.user = user;
+                (user: any) => {
                     this.user = user;
                 }
             );
         });
     }
+
+    deleteUser() {
+        return this.userService.deleteUserById(this.userId).subscribe((user: any) => {
+            console.log('user deleted' + user)
+        });
+    }
+
     ngOnInit() {
         this.activatedRoute.params.subscribe(
             (params: any) => {
@@ -36,7 +39,7 @@ export class ProfileComponent implements OnInit {
             }
         );
         this.userService.findUserById(this.userId).subscribe(
-            (user: User) => {
+            (user: any) => {
                 this.user = user;
             });
     }

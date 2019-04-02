@@ -9,16 +9,25 @@
 
 <div class="container move-up">
   <div class="form-group" *ngIf="widget">
-    <label for="heading-name">Name</label>
-    <input type="text" class="form-control" id="heading-name" placeholder="Name" [(ngModel)]="widget.name">
-  </div>
-  <div class="form-group" *ngIf="widget">
     <label for="heading-text">Text</label>
     <input type="text" class="form-control" id="heading-text" placeholder="Text" [(ngModel)]="widget.text">
   </div>
   <div class="form-group" *ngIf="widget">
-    <label for="heading-size">Size</label>
-    <input type="text" class="form-control" id="heading-size" placeholder="3" [(ngModel)]="widget.size">
+    <label for="heading-rows">Rows</label>
+    <input type="number" class="form-control" id="heading-rows" placeholder="1" [(ngModel)]="widget.rows">
+  </div>
+  <div class="form-group" *ngIf="widget">
+    <label for="heading-name">Name</label>
+    <input type="text" class="form-control" id="heading-name" placeholder="Name" [(ngModel)]="widget.name">
+  </div>
+  <div class="input-group" *ngIf="widget">
+    <input type="text"
+           readonly
+           value="Formatted"
+           class="form-control"/>
+    <span class="input-group-addon">
+        <input [(ngModel)]="widget.formatted" type="checkbox"/>
+    </span>
   </div>
   <a class="btn btn-danger  btn-block" (click)="deleteWidget()"
      routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget">Delete</a>

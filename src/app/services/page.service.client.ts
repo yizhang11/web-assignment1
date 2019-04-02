@@ -1,8 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import {Page} from '../models/page.model.client';
-
 
 @Injectable()
 export class PageService {
@@ -12,7 +10,7 @@ export class PageService {
     constructor(private _http: HttpClient) {
     }
 
-    createPage(websiteId: String, page: Page) {
+    createPage(websiteId: String, page: any) {
         return this._http.post(this.baseUrl + '/api/website/' + websiteId + '/page', page);
     }
 

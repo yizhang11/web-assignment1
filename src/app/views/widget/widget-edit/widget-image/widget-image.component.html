@@ -64,8 +64,10 @@
             <br/>
         </form>
     </form>
-  <a class="btn btn-danger  btn-block" routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget"
-     (click)="deleteWidget()">Delete</a>
+    <a class="btn btn-primary btn-block "
+       [routerLink]="['/user/'+userId+'/website/'+websiteId+'/page/'+pageId+'/widget/'+widgetId+'/flickr']" >Choose From Flickr</a>
+    <a class="btn btn-danger  btn-block" routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget"
+        (click)="deleteWidget()">Delete</a>
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-primary bg-light justify-content-start fixed-bottom">

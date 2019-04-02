@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {WidgetService} from '../../../../services/widget.service.client';
-import {Widget} from '../../../../models/widget.model.client';
-import {SharedService} from '../../../../services/shared.service.client';
 
 @Component({
   selector: 'app-widget-header',
@@ -18,11 +16,10 @@ export class WidgetHeaderComponent implements OnInit {
     websiteId: string;
     pageId: string;
     widgetId: string;
-    widget: Widget;
-    widgets: Widget[] = [];
+    widget: any;
+    widgets: any;
 
-    constructor(private widgetService: WidgetService, private router: Router, private activatedRoute: ActivatedRoute,
-                private sharedService: SharedService) { }
+    constructor(private widgetService: WidgetService, private activatedRoute: ActivatedRoute) { }
 
     ngOnInit() {
 
@@ -37,11 +34,10 @@ export class WidgetHeaderComponent implements OnInit {
                     this.websiteId = params['wid'];
                     this.pageId = params['pid'];
                     this.widgetId = params['wgid'];
-                    this.widgets = this.sharedService.widgets;
                 }
             );
         this.widgetService.findWidgetById(this.widgetId).subscribe(
-            (widget: Widget) => {
+            (widget: any) => {
                 this.widget = widget;
             }
         );
@@ -54,23 +50,16 @@ export class WidgetHeaderComponent implements OnInit {
             this.flag = true;
         } else {
             this.widgetService.updateWidget(this.widget._id, this.widget).subscribe(
-                (widget: Widget) => {
+                (widget: any) => {
                     console.log('update widget header: ' + widget);
-                    this.widgetService.findWidgetsByPageId(this.pageId).subscribe((data: any) => {
-                        this.sharedService.widgets = data;
-                    });
                 });
         }
     }
 
     deleteWidget() {
-
         this.widgetService.deleteWidget(this.widgetId).subscribe((data: any) => {
+            console.log('widget deleted' + data._id);
         });
-        this.widgetService.findWidgetsByPageId(this.pageId).subscribe((data1: any) => {
-            this.sharedService.widgets = data1;
-        });
-
     }
 
 }

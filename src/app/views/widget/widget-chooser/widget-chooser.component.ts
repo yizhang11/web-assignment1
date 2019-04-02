@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {WidgetService} from '../../../services/widget.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Widget} from '../../../models/widget.model.client';
-import {SharedService} from '../../../services/shared.service.client';
 
 @Component({
   selector: 'app-widget-chooser',
@@ -14,26 +12,31 @@ export class WidgetChooserComponent implements OnInit {
   userId: String;
   websiteId: String;
   pageId: String;
-  widget: Widget;
+  widget = {};
 
-  constructor(private widgetService: WidgetService, private activatedRoute: ActivatedRoute, private router: Router,
-              private sharedService: SharedService) { }
+  defaultWidgetValues =
+      {
+        'HEADER': {widgetType: 'HEADER', 'size' : 1},
+        'IMAGE': {widgetType: 'IMAGE', width: '100%'},
+        'YOUTUBE': {widgetType: 'YOUTUBE', width: '100%'},
+        'HTML': {widgetType: 'HTML'},
+        'TEXT': {widgetType: 'TEXT', placeholder: ''}
+      };
+
+  constructor(private widgetService: WidgetService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   createWidget(widgetType) {
-    this.widget.widgetType = widgetType;
-    this.widgetService.createWidget(this.pageId, this.widget).subscribe((widget: Widget) => {
-      this.widget = widget;
-      this.sharedService.widget = widget;
-      this.widgetService.findWidgetsByPageId(this.pageId).subscribe((data1: any) => {
-        this.sharedService.widgets = data1;
-      });
-      this.router.navigate(['/user/' + this.userId + '/website/' + this.websiteId + '/page/' + this.pageId + '/widget/' + this.widget._id])
+    this.widget = this.defaultWidgetValues[widgetType];
+    console.log('new widget: ' + this.widget);
+    this.widgetService.createWidget(this.pageId, this.widget).subscribe((data: any) => {
+      this.widget = data;
+      console.log(data);
+      this.router.navigate(['/user/' + this.userId + '/website/' + this.websiteId + '/page/' + this.pageId + '/widget/' + data._id]);
     });
     console.log(this.widget);
   }
 
   ngOnInit() {
-
     this.activatedRoute.params
         .subscribe(
             (params: any) => {
@@ -42,8 +45,6 @@ export class WidgetChooserComponent implements OnInit {
               this.pageId = params['pid'];
             }
         );
-    this.widget = new Widget('', '');
-
   }
 
 }

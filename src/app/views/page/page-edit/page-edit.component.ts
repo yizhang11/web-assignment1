@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PageService} from '../../../services/page.service.client';
-import {Page} from '../../../models/page.model.client';
-import {SharedService} from '../../../services/shared.service.client';
 
 @Component({
   selector: 'app-page-edit',
@@ -13,28 +11,21 @@ export class PageEditComponent implements OnInit {
 
     userId: String;
     websiteId: String;
-    pages: Page[] = [];
+    pages: any;
     pageId: String;
-    page: Page;
+    page: any;
 
-    constructor(private pageService: PageService, private activatedRoute: ActivatedRoute, private router: Router,
-                private sharedService: SharedService) {}
+    constructor(private pageService: PageService, private activatedRoute: ActivatedRoute) {}
 
     updatePage() {
-        this.pageService.updatePage(this.pageId, this.page).subscribe((page: Page) => {
+        this.pageService.updatePage(this.pageId, this.page).subscribe((page: any) => {
             this.page = page;
             console.log('update page: ' + page._id + ' ' + page.name);
-            this.pageService.findPagesByWebsiteId(this.websiteId).subscribe((data: any) => {
-                this.sharedService.pages = data;
-            });
         });
     }
     deletePage() {
-        this.pageService.deletePage(this.pageId).subscribe((data: any) => (data: Page) => {
+        this.pageService.deletePage(this.pageId).subscribe((data: any) => {
             console.log('delete page: ' + this.page._id);
-            this.pageService.findPagesByWebsiteId(this.websiteId).subscribe((data: any) => {
-                this.sharedService.pages = data;
-            });
         });
     }
 
@@ -47,11 +38,8 @@ export class PageEditComponent implements OnInit {
                     this.pageId = params['pid'];
                 }
             );
-        this.pageService.findPageById(this.pageId).subscribe((page: Page) => {
+        this.pageService.findPageById(this.pageId).subscribe((page: any) => {
             this.page = page;
-        });
-        this.pageService.findPagesByWebsiteId(this.websiteId).subscribe((data: any) => {
-            this.sharedService.pages = data;
         });
         console.log(this.page);
     }

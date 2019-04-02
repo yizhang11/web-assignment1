@@ -11,68 +11,76 @@ module.exports = function (app) {
         { _id: "543", name: "Post 3", websiteId: "456", title: "Lorem" }
     ];
 
+    let pageModel = require('../model/page/page.model.server');
+
     function createPage(req, res) {
-        const page = {
-            _id: Math.floor(Math.random() * 1000).toString(),
-            name: req.body.name,
-            websiteId: req.params['websiteId'],
-            title: req.body.title
-        };
-        for (let i = 0; i < pages.length; i++) {
-            if (pages[i].websiteId === page.websiteId && pages[i].name === page.name) {
-                res.status(404).send("This page has already existed.");
-                return;
-            }
-        }
-        pages.push(page);
-        res.json(page);
+        let page = req.body;
+        let websiteId = req.params.websiteId;
+
+        pageModel.createPage(websiteId,page)
+            .then(
+                function (page) {
+                    console.log(page);
+                    res.json(page);
+                },
+                function (error) {
+                    res.status(400).send(error);
+                }
+            )
     }
 
     function findAllPagesForWebsite(req, res) {
         let websiteId = req.params.websiteId;
-        let resultSet = [];
-        for (let x = 0; x < pages.length; x++) {
-            if (pages[x].websiteId === websiteId) {
-                resultSet.push(pages[x]);
-            }
-        }
-        res.json(resultSet);
+        pageModel.findAllPagesForWebsite(websiteId)
+            .then(
+                function (pages) {
+                    console.log('server service: ' + pages);
+                    res.json(pages);
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            )
     }
 
     function findPageById(req, res) {
         let pageId = req.params.pageId;
-        for (let i = 0; i < pages.length; i++) {
-            if (pages[i]._id === pageId) {
-                return res.json(pages[i]);
-            }
-        }
-        res.status(404).send("Cannot find page.");
+        pageModel.findPageById(pageId)
+            .then(
+                function (page) {
+                    res.json(page);
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            )
     }
 
     function updatePage(req, res) {
         let pageId = req.params.pageId;
         let updatedPage = req.body;
-        console.log(pageId);
-        for (let i = 0; i < pages.length; i++) {
-            if (pages[i]._id === pageId) {
-                pages[i].name = updatedPage.name;
-                pages[i].title = updatedPage.title;
-                res.json(pages[i]);
-                return;
-            }
-        }
-        res.status(404).send("Cannot find page");
+        pageModel.updatePage(pageId, updatedPage)
+            .then(
+                function (page) {
+                    res.json(page);
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            )
     }
 
     function deletePage(req, res) {
         let pageId = req.params.pageId;
-        for (let x = 0; x < pages.length; x++) {
-            if (pages[x]._id === pageId) {
-                res.json(pages[x]);
-                pages.splice(x, 1);
-                return;
-            }
-        }
-        res.status(404).send("Cannot find page");
+        pageModel.deletePage(pageId)
+            .then(
+                function (data) {
+                    res.json(data);
+                },
+                function (err) {
+                    res.status(400).send(err);
+
+                }
+            );
     }
 }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../../services/user.service.client';
 import {Router} from '@angular/router';
-import {User} from '../../../models/user.model.client';
-import {SharedService} from '../../../services/shared.service.client';
 
 @Component({
   selector: 'app-register',
@@ -11,23 +9,22 @@ import {SharedService} from '../../../services/shared.service.client';
 })
 export class RegisterComponent implements OnInit {
 
-  user: User;
+  user = {username: '', password: ''};
   v_password: string;
   errorFlag: boolean;
   errorMsg = 'Password mis-matching!';
 
-  constructor(private userService: UserService, private router: Router, private shareService: SharedService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   register() {
     if ( this.v_password === this.user.password) {
       this.errorFlag = false;
       this.userService.findUserByCredential(this.user.username, this.user.password)
-          .subscribe((user: User) => {
+          .subscribe((user: any) => {
             if (!user) {
-              this.userService.createUser(this.user).subscribe((data: User) => {
+              this.userService.createUser(this.user).subscribe((data: any) => {
                 this.user = data;
-                this.shareService.user = data;
-                this.router.navigate(['user/', this.user._id]);
+                this.router.navigate(['user/', data._id]);
               });
             }
           });
@@ -37,6 +34,5 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = new User('', '');
   }
 }

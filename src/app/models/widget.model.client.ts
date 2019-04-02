@@ -1,5 +1,4 @@
 export class Widget {
-    _id: String;
     widgetType: String;
     name: String;
     pageId: String;

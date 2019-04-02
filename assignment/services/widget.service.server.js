@@ -10,6 +10,7 @@ module.exports= function(app){
         { _id: "789", widgetType: "HTML", name: 'html name', pageId: "321", size: "", text: "<p>Lorem ipsum</p>", url: "", width: "", height: 100, rows: 0, class: '', icon: '', deletable: false, formatted: false, placeholder: '' }
     ];
 
+    let widgetModel = require('../model/widget/widget.model.server');
     let multer = require('multer'); // npm install multer --save
     const path = require('path');
     let storage = multer.diskStorage({
@@ -38,109 +39,70 @@ module.exports= function(app){
 
     function createWidget (req,res) {
         let widget = req.body;
-        widget._id = Math.floor(Math.random() * 1000).toString();
-        widget.pageId = req.params['pageId'];
-
-        console.log(widget);
-        widgets.push(widget);
-        res.send(widget);
+        let pageId = req.params['pageId'];
+        widgetModel
+            .createWidget(pageId, widget)
+            .then(function (widget) {
+                console.log('widget server service: ' + widget);
+                res.json(widget);
+            }, function (err) {
+                res.status(400).send(err);
+            });
     }
 
     function findAllWidgetsForPage (req,res) {
         let pageId = req.params.pageId;
-        let resultSet = [];
-        for(let i in widgets){
-            if(widgets[i].pageId === pageId){
-                resultSet.push(widgets[i]);
-            }
-        } res.send(resultSet);
+        widgetModel
+            .findAllWidgetsForPage(pageId)
+            .then(function (widgets) {
+                    res.json(widgets);
+                },
+                function (err) {
+                    res.status(404).send(err);
+                });
     }
 
     function findWidgetById (req,res) {
         let widgetId  = req.params.widgetId;
-        const widget = widgets.find(function (widget) {
-            return widget._id === widgetId;
-        });
-        if (widget) {
-            console.log("find widget by id: " + widget._id);
-            res.json(widget);
-            return;
-        } else {
-            console.log("find widget by id: not found");
-            res.json({});
-            return;
-        }
-        res.status(404).send("This widget doesn't exist.");
+        widgetModel
+            .findWidgetById(widgetId)
+            .then(function (widget) {
+                    res.json(widget);
+                },
+                function (err) {
+                    res.status(404).send(err);
+                });
     }
 
     function updateWidget (req,res) {
         let widgetId  = req.params.widgetId;
+        console.log('widget server service: ' + widgetId);
         let widget = req.body;
-        console.log(widget);
-
-        for (let i in widgets) {
-            if (widgets[i]._id === widgetId) {
-                switch (widgets[i].widgetType) {
-                    case 'HEADER':
-                    case 'TEXT':
-                    case 'HTML':
-                        widgets[i].name = widget.name;
-                        widgets[i].text = widget.text;
-                        widgets[i].size = widget.size;
-                        res.send(widget[i]);
-                        return;
-                    case 'IMAGE':
-                        widgets[i].name = widget.name;
-                        widgets[i].text = widget.text;
-                        widgets[i].url = widget.url;
-                        widgets[i].width = widget.width;
-                        res.send(widget[i]);
-                        return;
-                    case 'YOUTUBE':
-                        widgets[i].name = widget.name;
-                        widgets[i].text = widget.text;
-                        widgets[i].url = widget.url;
-                        widgets[i].width = widget.width;
-                        res.send(widget[i]);
-                        return;
-                }
-            }
-        }
+        console.log('widget server service: ' + widget);
+        widgetModel
+            .updateWidget(widgetId, widget)
+            .then(function (stats) {
+                    console.log('widget server service: ' + stats);
+                    res.json(stats);
+                },
+                function (err) {
+                    res.status(404).send(err);
+                });
     }
 
     function deleteWidget (req,res) {
         let widgetId  = req.params.widgetId;
-        for(let i = 0; i < widgets.length; i++) {
-            if (widgets[i]._id === widgetId) {
-                widgets.splice(i, 1);
-                res.status(200);
-                return;
-            }
-        }
-        res.status(404).send("Widget doesn't exist.");
+        widgetModel
+            .deleteWidget(widgetId);
     }
 
-    function array_swap(arr, old_index, new_index) {
-        while (old_index < 0) {
-            old_index += arr.length;
-        }
-        while (new_index < 0) {
-            new_index += arr.length;
-        }
-        if (new_index >= arr.length) {
-            let k = new_index - arr.length + 1;
-            while (k--) {
-                arr.push(undefined);
-            }
-        }
-        arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
-    }
 
     function reorderWidgets(req,res) {
         let startIndex = parseInt(req.query.start);
         let endIndex = parseInt(req.query["end"]);
-        array_swap(widgets, startIndex, endIndex);
-        res.status(200);
+        let pageId = req.params['pageId'];
+        widgetModel
+            .reorderWidgets(pageId, startIndex, endIndex);
     }
 
     /* pattern matching usies only base URL. it ignores anything after ?
@@ -177,23 +139,14 @@ module.exports= function(app){
         let url = '/assets/uploads/' + filename;
         console.log(url);
 
-        for (let i = 0; i < widgets.length; i++) {
-            if (widgets[i]._id === widgetId) {
-                widgets[i].url = url;
-                widgets[i].width = width;
-                res.redirect(callbackUrl + "/" + widgetId);
+        widgetModel.findWidgetById(widgetId).then(
+            function (widget) {
+                widget.url = url;
+                widgetModel.updateWidget(widgetId, widget).then(function (widget) {
+                    console.log('widget server: ' + widget);
+                });
             }
-        }
+        );
+        res.redirect(callbackUrl + "/" + widgetId);
     }
-
-
-
-
-
-
-
-
-
-
-
 };

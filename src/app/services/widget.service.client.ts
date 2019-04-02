@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {Widget} from '../models/widget.model.client';
 
 @Injectable()
 export  class WidgetService {
@@ -10,7 +9,7 @@ export  class WidgetService {
     constructor(private _http: HttpClient) {}
 
 
-    createWidget(pageId, widget: Widget) {
+    createWidget(pageId, widget: any) {
         const url = this.baseUrl + '/api/page/' + pageId + '/widget';
         return this._http.post(url, widget);
     }

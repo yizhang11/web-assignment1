@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Widget} from '../../../../models/widget.model.client';
 import {WidgetService} from '../../../../services/widget.service.client';
-import {ActivatedRoute, Router} from '@angular/router';
-import {SharedService} from '../../../../services/shared.service.client';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-widget-text',
@@ -18,11 +16,10 @@ export class WidgetTextComponent implements OnInit {
   websiteId: string;
   pageId: string;
   widgetId: string;
-  widget: Widget;
-  widgets: Widget[] = [];
+  widget: any;
+  widgets: any;
 
-  constructor(private widgetService: WidgetService, private router: Router, private activatedRoute: ActivatedRoute,
-              private sharedService: SharedService) { }
+  constructor(private widgetService: WidgetService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -37,7 +34,6 @@ export class WidgetTextComponent implements OnInit {
               this.websiteId = params['wid'];
               this.pageId = params['pid'];
               this.widgetId = params['wgid'];
-              this.widgets = this.sharedService.widgets;
             }
         );
 
@@ -55,11 +51,8 @@ export class WidgetTextComponent implements OnInit {
             this.flag = true;
         } else {
             this.widgetService.updateWidget(this.widget._id, this.widget).subscribe(
-                (widget: Widget) => {
+                (widget: any) => {
                     console.log('update widget text: ' + widget);
-                    this.widgetService.findWidgetsByPageId(this.pageId).subscribe((data: any) => {
-                        this.sharedService.widgets = data;
-                    });
                 });
         }
     }
@@ -67,9 +60,7 @@ export class WidgetTextComponent implements OnInit {
     deleteWidget() {
 
         this.widgetService.deleteWidget(this.widgetId).subscribe((data: any) => {
-        });
-        this.widgetService.findWidgetsByPageId(this.pageId).subscribe((data1: any) => {
-            this.sharedService.widgets = data1;
+            console.log('widget deleted: ' + data._id);
         });
 
     }
