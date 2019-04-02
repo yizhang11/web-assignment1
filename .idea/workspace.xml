@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51bf125a-b869-4ee9-9a01-7196054f02d0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/assignment/model/user/user.model.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/assignment/model/user/user.model.server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/views/user/profile/profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/user/profile/profile.component.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -17,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/views/user/profile/profile.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="628">
-              <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+            <state relative-caret-position="328">
+              <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -29,7 +28,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assignment/model/user/user.model.server.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
@@ -132,8 +131,8 @@
         <option value="$PROJECT_DIR$/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/src/app/views/user/profile/profile.component.html" />
-        <option value="$PROJECT_DIR$/src/app/views/user/profile/profile.component.ts" />
         <option value="$PROJECT_DIR$/assignment/model/user/user.model.server.js" />
+        <option value="$PROJECT_DIR$/src/app/views/user/profile/profile.component.ts" />
       </list>
     </option>
   </component>
@@ -207,6 +206,27 @@
             <path>
               <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
               <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+              <item name="yi-project1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+              <item name="yi-project1" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+              <item name="yi-project1" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -245,72 +265,6 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
               <item name="profile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-              <item name="widget-chooser" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-              <item name="widget-edit" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-              <item name="widget-edit" type="462c0819:PsiDirectoryNode" />
-              <item name="widget-html" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-              <item name="widget-edit" type="462c0819:PsiDirectoryNode" />
-              <item name="widget-image" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-              <item name="widget-edit" type="462c0819:PsiDirectoryNode" />
-              <item name="widget-image" type="462c0819:PsiDirectoryNode" />
-              <item name="flickr-image-search" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-              <item name="widget-list" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="web-assignment1" type="b2602c69:ProjectViewProjectNode" />
@@ -452,12 +406,12 @@
       <workItem from="1553730964812" duration="2543000" />
       <workItem from="1553813754148" duration="8470000" />
       <workItem from="1554061083017" duration="28977000" />
-      <workItem from="1554169798299" duration="8705000" />
+      <workItem from="1554169798299" duration="8953000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188587000" />
+    <option name="totallyTimeSpent" value="188835000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -847,13 +801,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/views/user/profile/profile.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assignment/services/widget.service.server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -861,20 +808,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/views/user/profile/profile.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assignment/model/user/user.model.server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/views/user/profile/profile.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/views/user/profile/profile.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

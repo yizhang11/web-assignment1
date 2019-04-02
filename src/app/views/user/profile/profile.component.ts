@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
             return this.userService.updateUser(this.user).subscribe(
                 (user: any) => {
                     console.log('update: ' + user.email);
-                    this.user = user;
+                    //this.user = user;
                 }
             );
         });
