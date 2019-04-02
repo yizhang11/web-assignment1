@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
 
     deleteUser() {
         return this.userService.deleteUserById(this.userId).subscribe((user: any) => {
-            console.log('user deleted' + user)
+            console.log('user deleted' + user);
         });
     }
 
@@ -42,7 +42,6 @@ export class ProfileComponent implements OnInit {
         this.userService.findUserById(this.userId).subscribe(
             (user: any) => {
                 this.user = user;
-                console.log('profile: ' + user);
             });
     }
 }
