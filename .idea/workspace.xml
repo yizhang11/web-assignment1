@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="51bf125a-b869-4ee9-9a01-7196054f02d0" name="Default Changelist" comment="" />
+    <list default="true" id="51bf125a-b869-4ee9-9a01-7196054f02d0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/yi-project1/3rdpartylicenses.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/yi-project1/assets/uploads/02408ac568cb79c8c9e7e1a0c50165cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/yi-project1/assets/uploads/042a0cbcd50a039a282d9741f5f2932f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/yi-project1/assets/uploads/1552954900594.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/yi-project1/assets/uploads/356e29d99357053b5a06435f99c84931" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/yi-project1/assets/uploads/361f9a7507510c59c75ffde8b6b69fa1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/yi-project1/assets/uploads/4ec2162b9e4e79ef59adcca65ed2bac0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/yi-project1/assets/uploads/a3ac0ec416be1223cde98c5eb5e491fe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/yi-project1/assets/uploads/dea0d8eeaa474386f6202d306cddb223" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/yi-project1/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/yi-project1/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/yi-project1/main.391d7cf8654e8a5236ab.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/yi-project1/polyfills.f5ce8ecea387adbb1689.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/yi-project1/runtime.b57bf819d5bdce77f1c7.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/yi-project1/styles.a6c0ae912e7b34313b40.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/views/user/profile/profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/user/profile/profile.component.ts" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/views/user/profile/profile.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+            <state relative-caret-position="229">
+              <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -26,65 +44,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/views/user/profile/profile.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="30">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-html/widget-html.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="7" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/app.component.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/app.component.ts">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="36" column="65" selection-start-line="36" selection-start-column="65" selection-end-line="36" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-490" />
           </provider>
         </entry>
       </file>
@@ -159,13 +124,13 @@
         <option value="$PROJECT_DIR$/src/app/services/flickr.service.client.ts" />
         <option value="$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-html/widget-html.component.html" />
         <option value="$PROJECT_DIR$/assignment/model/widget/widget.model.server.js" />
-        <option value="$PROJECT_DIR$/src/app/views/user/profile/profile.component.html" />
-        <option value="$PROJECT_DIR$/src/app/views/user/profile/profile.component.ts" />
         <option value="$PROJECT_DIR$/assignment/services/user.service.server.js" />
         <option value="$PROJECT_DIR$/assignment/model/user/user.model.server.js" />
         <option value="$PROJECT_DIR$/assignment/services/widget.service.server.js" />
         <option value="$PROJECT_DIR$/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/src/app/views/user/profile/profile.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/views/user/profile/profile.component.html" />
       </list>
     </option>
   </component>
@@ -484,12 +449,12 @@
       <workItem from="1553730964812" duration="2543000" />
       <workItem from="1553813754148" duration="8470000" />
       <workItem from="1554061083017" duration="28977000" />
-      <workItem from="1554169798299" duration="7620000" />
+      <workItem from="1554169798299" duration="8167000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187502000" />
+    <option name="totallyTimeSpent" value="188049000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -502,9 +467,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22832981" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22832981" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -519,7 +483,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32988167" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5003626" side_tool="true" weight="0.32988167" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49963742" visible="true" weight="0.2686747" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49963742" visible="true" weight="0.2686747" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -656,13 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/views/widget/widget-chooser/widget-chooser.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -878,23 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/views/user/profile/profile.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/views/user/profile/profile.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-html/widget-html.component.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -904,10 +844,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/views/widget/widget-chooser/widget-chooser.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-html/widget-html.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/views/user/profile/profile.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/views/user/profile/profile.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
