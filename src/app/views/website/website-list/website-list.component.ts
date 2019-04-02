@@ -11,7 +11,7 @@ import {ActivatedRoute} from '@angular/router';
 export class WebsiteListComponent implements OnInit {
 
   userId: String;
-  websites = {};
+  websites: any;
 
     constructor(private websiteService: WebsiteService, private activatedRoute: ActivatedRoute) { }
 
@@ -25,8 +25,8 @@ export class WebsiteListComponent implements OnInit {
         this.websiteService.findWebsitesByUser(this.userId)
             .subscribe((data: any) => {
                 this.websites = data;
+                console.log(data);
             });
-        console.log(this.websites);
     }
 }
 
