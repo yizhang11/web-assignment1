@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
         this.activatedRoute.params.subscribe(params => {
             return this.userService.updateUser(this.user).subscribe(
                 (user: any) => {
-                    console.log('update: ' + user);
+                    console.log('update: ' + user.email);
                     this.user = user;
                 }
             );
@@ -42,6 +42,7 @@ export class ProfileComponent implements OnInit {
         this.userService.findUserById(this.userId).subscribe(
             (user: any) => {
                 this.user = user;
+                console.log('profile: ' + user);
             });
     }
 }
