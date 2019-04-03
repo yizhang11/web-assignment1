@@ -32,7 +32,7 @@ export class WidgetImageComponent implements OnInit {
         );
         this.widgetService.findWidgetById(this.widgetId).subscribe((data: any) => {
             this.widget = data;
-            console.log(this.widget);
+            console.log('image: ' + this.widget);
         });
     }
 
