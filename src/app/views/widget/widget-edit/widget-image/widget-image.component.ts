@@ -30,10 +30,11 @@ export class WidgetImageComponent implements OnInit {
                 this.widgetId = params['wgid'];
             }
         );
-        this.widgetService.findWidgetById(this.widgetId).subscribe((data: any) => {
-            this.widget = data;
-            console.log('image: ' + this.widget);
-        });
+        this.widgetService.findWidgetById(this.widgetId)
+            .subscribe(
+                (data: any) => this.widget = data,
+                (error: any) => console.log(error)
+            );
     }
 
     updateWidget() {
@@ -42,7 +43,10 @@ export class WidgetImageComponent implements OnInit {
         if (this.widget['name'] === undefined) {
             this.flag = true;
         } else {
-            this.widgetService.updateWidget(this.widgetId, this.widget);
+            this.widgetService.updateWidget(this.widget._id, this.widget).subscribe(
+                (widget: any) => {
+                    console.log('update widget header: ');
+                });
         }
     }
 

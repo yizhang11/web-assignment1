@@ -44,7 +44,10 @@ export class WidgetYoutubeComponent implements OnInit {
         if (this.widget['name'] === undefined) {
             this.flag = true;
         } else {
-            this.widgetService.updateWidget(this.widgetId, this.widget);
+            this.widgetService.updateWidget(this.widget._id, this.widget).subscribe(
+                (widget: any) => {
+                    console.log('update widget header: ');
+                });
         }
     }
 

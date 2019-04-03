@@ -12,7 +12,7 @@ export class WebsiteNewComponent implements OnInit {
   userId: String;
   websiteId: String;
   website = {name: '', description: ''};
-  websites = {};
+  websites: any;
 
   constructor(private websiteService: WebsiteService, private activatedRoute: ActivatedRoute) { }
 

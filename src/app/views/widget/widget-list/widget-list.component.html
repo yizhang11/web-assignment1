@@ -54,14 +54,14 @@
                 </div>
 
 
-                <div *ngSwitchCase="'YOUTUBE'" class="youtube-widget">
+                <div *ngSwitchCase="'YOUTUBE'"  class="youtube-widget">
                   <div class="float-right">
                     <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget" class="float-right">
                       <i class="fas fa-bars"></i></a>
                     <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget/{{widget._id}}">
                       <i class="fas fa-cog"></i></a>
                   </div>
-                  <div class="embed-responsive embed-responsive-16by9">
+                  <div class="embed-responsive embed-responsive-16by9" >
                     <iframe [width]="toNumber(widget.width) * 640" [height]="toNumber(widget.width) * 360"
                             [src]="sanitizer.bypassSecurityTrustResourceUrl(widget.url)" frameborder="0" allowfullscreen></iframe>
                     <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget" class="pull-right">

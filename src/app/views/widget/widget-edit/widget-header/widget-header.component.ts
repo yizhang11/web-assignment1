@@ -51,7 +51,7 @@ export class WidgetHeaderComponent implements OnInit {
         } else {
             this.widgetService.updateWidget(this.widget._id, this.widget).subscribe(
                 (widget: any) => {
-                    console.log('update widget header: ' + widget);
+                    console.log('update widget header: ');
                 });
         }
     }
