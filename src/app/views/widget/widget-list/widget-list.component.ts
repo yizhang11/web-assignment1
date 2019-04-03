@@ -48,4 +48,15 @@ export class WidgetListComponent implements OnInit {
     //     url = 'https://www.youtube.com/embed/' + id;
     //     return this._sanitizer.bypassSecurityTrustResourceUrl(url);
     // }
+
+    getId(url) {
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        const match = url.match(regExp);
+
+        if (match && match[2].length === 11) {
+            return match[2];
+        } else {
+            return 'error';
+        }
+    }
 }
