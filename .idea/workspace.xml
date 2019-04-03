@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="51bf125a-b869-4ee9-9a01-7196054f02d0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/yi-project1/3rdpartylicenses.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/yi-project1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/yi-project1/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/yi-project1/main.add149603f7a94af3c99.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/yi-project1/polyfills.f5ce8ecea387adbb1689.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/yi-project1/runtime.b57bf819d5bdce77f1c7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/yi-project1/styles.a6c0ae912e7b34313b40.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/views/website/website-new/website-new.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/website/website-new/website-new.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-header/widget-header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-header/widget-header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-html/widget-html.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-html/widget-html.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-image/widget-image.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-image/widget-image.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-youtube/widget-youtube.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-youtube/widget-youtube.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/views/widget/widget-list/widget-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/widget/widget-list/widget-list.component.html" afterDir="false" />
-    </list>
+    <list default="true" id="51bf125a-b869-4ee9-9a01-7196054f02d0" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,7 +23,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/views/widget/widget-list/widget-list.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="223">
@@ -50,8 +35,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="36" column="109" selection-start-line="36" selection-start-column="109" selection-end-line="36" selection-end-column="109" />
+            <state relative-caret-position="357">
+              <caret line="35" column="2" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assignment/services/widget.service.server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="34" column="45" lean-forward="true" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -138,7 +132,6 @@
         <option value="$PROJECT_DIR$/src/app/views/website/website-list/website-list.component.html" />
         <option value="$PROJECT_DIR$/src/app/views/website/website-list/website-list.component.ts" />
         <option value="$PROJECT_DIR$/src/app/views/widget/widget-list/widget-list.component.ts" />
-        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/src/app/views/website/website-new/website-new.component.ts" />
         <option value="$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-header/widget-header.component.ts" />
         <option value="$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-html/widget-html.component.ts" />
@@ -146,6 +139,7 @@
         <option value="$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-image/widget-image.component.ts" />
         <option value="$PROJECT_DIR$/src/app/views/widget/widget-list/widget-list.component.css" />
         <option value="$PROJECT_DIR$/src/app/views/widget/widget-list/widget-list.component.html" />
+        <option value="$PROJECT_DIR$/server.js" />
       </list>
     </option>
   </component>
@@ -527,12 +521,12 @@
       <workItem from="1553813754148" duration="8470000" />
       <workItem from="1554061083017" duration="28977000" />
       <workItem from="1554169798299" duration="9842000" />
-      <workItem from="1554251754536" duration="4384000" />
+      <workItem from="1554251754536" duration="4776000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194108000" />
+    <option name="totallyTimeSpent" value="194500000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -545,8 +539,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22832981" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22832981" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -561,7 +556,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32988167" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5003626" side_tool="true" weight="0.32988167" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49963742" visible="true" weight="0.2686747" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49963742" visible="true" weight="0.2686747" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -798,13 +793,6 @@
     <entry file="file://$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-youtube/widget-youtube.component.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/assignment/services/widget.service.server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-881">
-          <caret line="8" column="97" lean-forward="true" selection-start-line="8" selection-start-column="97" selection-end-line="8" selection-end-column="138" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assignment/model/widget/widget.schema.server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -829,13 +817,6 @@
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="36" column="109" selection-start-line="36" selection-start-column="109" selection-end-line="36" selection-end-column="109" />
         </state>
       </provider>
     </entry>
@@ -912,6 +893,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/views/widget/widget-list/widget-list.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="56" column="70" selection-start-line="56" selection-start-column="70" selection-end-line="56" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/views/widget/widget-list/widget-list.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -919,10 +907,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/views/widget/widget-list/widget-list.component.html">
+    <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="56" column="70" selection-start-line="56" selection-start-column="70" selection-end-line="56" selection-end-column="70" />
+        <state relative-caret-position="357">
+          <caret line="35" column="2" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assignment/services/widget.service.server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="34" column="45" lean-forward="true" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
         </state>
       </provider>
     </entry>
