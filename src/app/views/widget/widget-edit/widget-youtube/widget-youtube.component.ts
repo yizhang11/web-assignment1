@@ -40,11 +40,11 @@ export class WidgetYoutubeComponent implements OnInit {
     updateWidget() {
 
         // if name field is undefined then set error 'flag' to true making 'error' and 'alert' message visible
+        console.log('update youtube: ' + this.widget.url);
         if (this.widget['name'] === undefined) {
             this.flag = true;
         } else {
             this.widgetService.updateWidget(this.widgetId, this.widget);
-            console.log('update youtube: ' + this.widget.url);
         }
     }
 
