@@ -14,7 +14,7 @@ export class WidgetListComponent implements OnInit {
     websiteId: String;
     pageId: String;
     widgets: any;
-    constructor(private widgetService: WidgetService, private activatedRoute: ActivatedRoute, private _sanitizer: DomSanitizer) { }
+    constructor(private widgetService: WidgetService, private activatedRoute: ActivatedRoute, public sanitizer: DomSanitizer) { }
 
     ngOnInit() {
         this.activatedRoute.params.subscribe(
@@ -39,13 +39,13 @@ export class WidgetListComponent implements OnInit {
         return parseInt(string, 10) / 100;
     }
 
-    convertToSafeYoutubeUrl(url) {
-        const res = url.split('\/');
-        let id = res[res.length - 1];
-        if (id.indexOf('watch?v=') !== -1) {
-            id = id.substring(8);
-        }
-        url = 'https://www.youtube.com/embed/' + id;
-        return this._sanitizer.bypassSecurityTrustResourceUrl(url);
-    }
+    // convertToSafeYoutubeUrl(url) {
+    //     const res = url.split('\/');
+    //     let id = res[res.length - 1];
+    //     if (id.indexOf('watch?v=') !== -1) {
+    //         id = id.substring(8);
+    //     }
+    //     url = 'https://www.youtube.com/embed/' + id;
+    //     return this._sanitizer.bypassSecurityTrustResourceUrl(url);
+    // }
 }

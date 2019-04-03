@@ -63,7 +63,7 @@
                   </div>
                   <div class="embed-responsive embed-responsive-16by9">
                     <iframe [width]="toNumber(widget.width) * 640" [height]="toNumber(widget.width) * 360"
-                            [src]="convertToSafeYoutubeUrl(widget.url)" frameborder="0" allowfullscreen></iframe>
+                            [src]="sanitizer.bypassSecurityTrustResourceUrl(widget.url)" frameborder="0" allowfullscreen></iframe>
                     <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget" class="pull-right">
                       <span class="glyphicon glyphicon-menu-hamburger"></span></a>
                     <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget/{{widget._id}}" class="pull-right">
