@@ -29,7 +29,10 @@ export class WidgetYoutubeComponent implements OnInit {
         );
         this.widgetService.findWidgetById(this.widgetId)
             .subscribe(
-                (data: any) => this.widget = data,
+                (data: any) => {
+                    this.widget = data;
+                    console.log('youtube: ' + data);
+                },
                 (error: any) => console.log(error)
             );
     }
@@ -41,6 +44,7 @@ export class WidgetYoutubeComponent implements OnInit {
             this.flag = true;
         } else {
             this.widgetService.updateWidget(this.widgetId, this.widget);
+            console.log('update youtube: ' + this.widget);
         }
     }
 
