@@ -41,6 +41,10 @@ export class WidgetYoutubeComponent implements OnInit {
 
         // if name field is undefined then set error 'flag' to true making 'error' and 'alert' message visible
         console.log('update youtube: ' + this.widget.url);
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = this.widget.url.match(regExp);
+            this.widget.url = 'https://www.youtube.com/embed/' + match[2];
+        console.log('safe youtube url: ' + this.widget.url);
         if (this.widget['name'] === undefined) {
             this.flag = true;
         } else {
@@ -50,6 +54,9 @@ export class WidgetYoutubeComponent implements OnInit {
                 });
         }
     }
+
+  //  https://www.youtube.com/embed/mFkli0wD4-w
+ //        https://www.youtube.com/embed/vw2SaHkGfss
 
     deleteWidget() {
 
