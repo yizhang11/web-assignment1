@@ -124,7 +124,7 @@ module.exports= function(app){
             + "/page/" + pageId + "/widget";
         if(myFile == null) {
             // res.redirect(callbackUrl + "/" + widgetId);
-            res.redirect('back');
+            // res.redirect('back');
             return;
         }
 
@@ -148,6 +148,6 @@ module.exports= function(app){
             }
         );
         // res.redirect(callbackUrl + "/" + widgetId);
-        res.redirect('back');
+        // res.redirect('back');
     }
 };
