@@ -120,7 +120,7 @@ module.exports= function(app){
 
         //let baseUrl = 'http://localhost:3200';
         let baseUrl = 'https://yi-assignment1.herokuapp.com';
-        const callbackUrl = baseUrl + '/user/' + userId + "/website/" + websiteId
+        const callbackUrl = baseUrl + "/website/" + websiteId
             + "/page/" + pageId + "/widget";
         if(myFile == null) {
             res.redirect(callbackUrl + "/" + widgetId);
