@@ -4,6 +4,19 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const app = express();
 
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const passport = require('passport');
+
+const secret = !!process.env.SESSION_SECRET ? process.env.SESSION_SECRET : 'local_secret';
+app.use(cookieParser());
+app.use(session({ secret: secret}));
+
+
+app.use(passport.initialize());
+
+app.use(passport.session());
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -33,7 +46,7 @@ app.get('*', function (req, res) {
 
 server.listen( port , () => console.log('Running on port 3200'));
 
-//const connectionString = 'mongodb://127.0.0.1:27017/webdev';
+// const connectionString = 'mongodb://127.0.0.1:27017/webdev';
 const connectionString = 'mongodb://webAssignment5:webAssignment5@ds115931.mlab.com:15931/heroku_jv88xmwz';
 let mongoose = require("mongoose");
 mongoose.Promise = global.Promise;

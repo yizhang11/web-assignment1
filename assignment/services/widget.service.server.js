@@ -76,13 +76,12 @@ module.exports= function(app){
 
     function updateWidget (req,res) {
         let widgetId  = req.params.widgetId;
-        console.log('widget server service: ' + widgetId);
+        console.log('widget server update: ' + widgetId);
         let widget = req.body;
-        console.log('widget server service: ' + widget);
         widgetModel
             .updateWidget(widgetId, widget)
             .then(function (stats) {
-                    console.log('widget server service: ' + stats);
+                    console.log('widget server update: ' + stats);
                     res.json(stats);
                 },
                 function (err) {
