@@ -123,7 +123,8 @@ module.exports= function(app){
         const callbackUrl = baseUrl + "/website/" + websiteId
             + "/page/" + pageId + "/widget";
         if(myFile == null) {
-            res.redirect(callbackUrl + "/" + widgetId);
+            // res.redirect(callbackUrl + "/" + widgetId);
+            res.redirect('back');
             return;
         }
 
@@ -146,6 +147,7 @@ module.exports= function(app){
                 });
             }
         );
-        res.redirect(callbackUrl + "/" + widgetId);
+        // res.redirect(callbackUrl + "/" + widgetId);
+        res.redirect('back');
     }
 };
