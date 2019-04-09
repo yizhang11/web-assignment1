@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51bf125a-b869-4ee9-9a01-7196054f02d0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/assignment/services/widget.service.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/assignment/services/widget.service.server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-image/widget-image.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-image/widget-image.component.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -41,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-image/widget-image.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="65" column="92" selection-start-line="65" selection-start-column="92" selection-end-line="65" selection-end-column="92" />
+            <state relative-caret-position="260">
+              <caret line="65" column="126" selection-start-line="65" selection-start-column="126" selection-end-line="65" selection-end-column="126" />
             </state>
           </provider>
         </entry>
@@ -431,12 +430,12 @@
       <workItem from="1554412374252" duration="30022000" />
       <workItem from="1554683896252" duration="21998000" />
       <workItem from="1554831605645" duration="785000" />
-      <workItem from="1554840663913" duration="7125000" />
+      <workItem from="1554840663913" duration="7339000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="257028000" />
+    <option name="totallyTimeSpent" value="257242000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -857,8 +856,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/views/widget/widget-edit/widget-image/widget-image.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="65" column="92" selection-start-line="65" selection-start-column="92" selection-end-line="65" selection-end-column="92" />
+        <state relative-caret-position="260">
+          <caret line="65" column="126" selection-start-line="65" selection-start-column="126" selection-end-line="65" selection-end-column="126" />
         </state>
       </provider>
     </entry>

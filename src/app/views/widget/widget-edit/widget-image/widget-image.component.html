@@ -63,7 +63,7 @@
             <input  name="width" value="{{widget?.width}}"   style="display: none"/>
             <input  name="name" value="{{widget?.name}}"   style="display: none"/>
             <input  name="text" value="{{widget?.text}}"   style="display: none"/>
-            <button type="submit" class="btn btn-block btn-primary" (click)="updateWidget()">Upload Image</button>
+            <button type="submit" class="btn btn-block btn-primary" routerLink="/website/{{websiteId}}/page/{{pageId}}/widget">Upload Image</button>
             <br/>
         </form>
     <a class="btn btn-primary btn-block "
