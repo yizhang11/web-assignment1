@@ -222,9 +222,9 @@ module.exports = function (app) {
 
 
     function deleteUser(req, res) {
-        let user = req.body;
+        let userId = req.params["userId"];
         userModel
-            .deleteUser(user._id)
+            .deleteUser(userId)
             .then(
                 function (user) {
                     console.log('user service delete: ' + user);
