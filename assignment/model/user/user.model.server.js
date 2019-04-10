@@ -38,11 +38,11 @@ function findByCredential(username,password){
 function updateUser(userId,user) {
     console.log('user model update: ' + user);
     delete user._id;
-    return userModel.findOneAndUpdate({_id: userId},user);
+    return userModel.findOneAndUpdate(userId,user);
 }
 
 function deleteUser(userId){
-    return userModel.findOneAndRemove({_id: userId}).then(function (user) {
+    return userModel.findByIdAndRemove(userId).then(function (user) {
         console.log('user model delete: ' + user);
         return user;
     });
