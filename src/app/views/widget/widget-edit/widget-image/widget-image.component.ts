@@ -40,13 +40,16 @@ export class WidgetImageComponent implements OnInit {
     updateWidget() {
 
         this.widget.name = this.myWidgetForm.value.widgetname;
+        console.log('start update widget image: ');
         // if name field is undefined then set error 'flag' to true making 'error' and 'alert' message visible
         if (this.widget['name'] === undefined) {
+            console.log('fail update widget image: ');
             this.flag = true;
         } else {
+            console.log('trying update widget image: ');
             this.widgetService.updateWidget(this.widget._id, this.widget).subscribe(
                 (widget: any) => {
-                    console.log('update widget header: ');
+                    console.log('update widget image: ');
                 });
         }
     }

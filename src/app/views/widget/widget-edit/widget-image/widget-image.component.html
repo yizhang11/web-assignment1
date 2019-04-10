@@ -12,13 +12,8 @@
 
         <div class="form-group" >
             <label for="image-name">Name</label>
-            <input ngModel required #widgetname="ngModel"
-                   name="name"
-                   type="text"
-                   class="form-control"
-                   id="image-name"
-                   [(ngModel)]="widget.name"
-                   placeholder="name"/>
+            <input type="text" class="form-control" id="image-name" placeholder="Name" name="widgetname"
+                   ngModel required #widgetname="ngModel" [(ngModel)]="widget.name">
         </div>
         <span class="help-block" *ngIf="!widgetname.valid">
           Please enter widget name!

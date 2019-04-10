@@ -118,12 +118,13 @@ module.exports= function(app){
         let width         = req.body.width;
         let myFile        = req.file;
 
-        //let baseUrl = 'http://localhost:3200';
-        let baseUrl = 'https://yi-assignment1.herokuapp.com';
-        const callbackUrl = baseUrl + "/website/" + websiteId
-            + "/page/" + pageId + "/widget";
+        // let baseUrl = 'http://localhost:3200';
+        // // let baseUrl = 'https://yi-assignment1.herokuapp.com';
+        // const callbackUrl = baseUrl + "/website/" + websiteId
+        //     + "/page/" + pageId + "/widget/" + widgetId;
+        // console.log('widget server callbackUrl: ' + callbackUrl);
         if(myFile == null) {
-            // res.redirect(callbackUrl + "/" + widgetId);
+            res.redirect('/#/website/' + websiteId + '/page/' + pageId + '/widget/' + widgetId);
             // res.redirect('back');
             return;
         }
@@ -143,11 +144,14 @@ module.exports= function(app){
             function (widget) {
                 widget.url = url;
                 widgetModel.updateWidget(widgetId, widget).then(function (widget) {
-                    console.log('widget server: ' + widget);
+                    console.log('widget server updated url: ');
+                    // res.json(widget);
+                    res.redirect('/#/website/' + websiteId + '/page/' + pageId + '/widget/' + widgetId);
                 });
             }
         );
-        // res.redirect(callbackUrl + "/" + widgetId);
+        //
+
         // res.redirect('back');
     }
 };
