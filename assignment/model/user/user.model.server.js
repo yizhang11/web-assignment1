@@ -42,7 +42,7 @@ function updateUser(userId,user) {
 }
 
 function deleteUser(userId){
-    return userModel.findOneAndRemove(userId).then(function (user) {
+    return userModel.findByIdAndRemove(userId).then(function (user) {
         console.log('user model delete: ' + user);
         return user;
     });
